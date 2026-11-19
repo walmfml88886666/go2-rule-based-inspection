@@ -4,7 +4,7 @@
 
 **Rule-based indoor and outdoor inspection with the Unitree Go2 EDU.** The field system turns LiDAR maps and annotated targets into inspection routes, then ties robot trajectories, images, and logs back to each mission.
 
-**[Field demos](#field-demos)** · **[Architecture](#system-architecture)** · **[Quick start](#quick-start)** · **[Downloads](https://github.com/walmfml88886666/go2-rule-based-inspection/releases/latest)** · **[Discussions](https://github.com/walmfml88886666/go2-rule-based-inspection/discussions)**
+**[Field demos](#field-demos)** · **[MuJoCo patrol](#mujoco-workshop-patrol)** · **[Architecture](#system-architecture)** · **[Quick start](#quick-start)** · **[Downloads](https://github.com/walmfml88886666/go2-rule-based-inspection/releases/latest)** · **[Discussions](https://github.com/walmfml88886666/go2-rule-based-inspection/discussions)**
 
 ## Field demos
 
@@ -31,6 +31,16 @@ The images below project historical LiDAR corner points, planned routes, and tar
 | **Indoor · 22 planned stops** | **Outdoor · 8 planned stops** |
 | :---: | :---: |
 | [![Indoor point cloud and planned route](assets/indoor-field-map.png)](assets/indoor-field-map.png) | [![Outdoor point cloud and planned route](assets/outdoor-field-map.png)](assets/outdoor-field-map.png) |
+
+## MuJoCo workshop patrol
+
+[![Simulated Go2 with a Dijkstra detour, physics-driven motion and two camera stops](assets/go2-physics-patrol.webp)](assets/go2-physics-patrol.mp4?raw=1)
+
+The original project’s Dijkstra path module replans around a scripted service cart. The Go2 moves through MuJoCo joint torques and foot contacts, then stops for two simulated RGB captures.
+
+[Watch the full 40-second run](assets/go2-physics-patrol.mp4?raw=1) · [See the captures and run metrics](docs/physics-patrol.md)
+
+The indoor replay above comes from a recorded field mission. This workshop uses a synthetic map, simulator pose feedback and a scripted obstacle update. The run notes include instability and contact measurements.
 
 ## System architecture
 

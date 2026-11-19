@@ -138,5 +138,35 @@
     "treatment": "1600 × 900 video. Prescribed-pose visualization of the computed routes.",
     "release_asset": true,
     "release_tag": "v0.3.0"
+  },
+  {
+    "file": "assets/go2-physics-patrol.webp",
+    "sha256": "9b97b4aa07753a1e347a9885d33b319af3aeaac61d62a3a1e65d79d2ac238177",
+    "source": "Synthetic workshop simulation; examples/physics_patrol.py and examples/render_patrol.py",
+    "treatment": "Short excerpts at 2x playback; the complete run is linked beside the preview"
+  },
+  {
+    "file": "assets/go2-physics-patrol.jpg",
+    "sha256": "6c4739e9716d91489dae924692dd9e0c011b6a7fde750aad13b441d7ea86b9bd",
+    "source": "Synthetic workshop simulation; examples/physics_patrol.py and examples/render_patrol.py",
+    "treatment": "Still from the first simulated inspection stop"
+  },
+  {
+    "file": "assets/go2-physics-patrol.mp4",
+    "sha256": "1e14d0b0f71a58f71eea459d59e9ffd59a40027361f0905a37afb167acc6f173",
+    "source": "Synthetic workshop simulation; examples/physics_patrol.py and examples/render_patrol.py",
+    "treatment": "Full logged simulation, H.264 1600x900 at 25 fps and 2x playback"
+  },
+  {
+    "file": "assets/simulated-capture-1.png",
+    "sha256": "dc2bdc6f001515f89c6c82fa76d03038677866ef151c92b8fe8cb8d271320026",
+    "source": "Synthetic workshop simulation; examples/physics_patrol.py and examples/render_patrol.py",
+    "treatment": "RGB frame from the recorded chassis camera pose at station 1"
+  },
+  {
+    "file": "assets/simulated-capture-2.png",
+    "sha256": "e35b90053f33bb09bbdc12185c8809ed3be4a326a2ec75ac66f1092557c7c201",
+    "source": "Synthetic workshop simulation; examples/physics_patrol.py and examples/render_patrol.py",
+    "treatment": "RGB frame from the recorded chassis camera pose at station 2"
   }
 ]
