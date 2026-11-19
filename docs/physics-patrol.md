@@ -18,7 +18,7 @@ The local source is the 2026-10-30 three-profile comparison archive and its froz
 
 The collision scene is the archive's occupancy-0.50 sensitivity model. It carries the map residuals and geometric approximations of that model. Every source terrain and obstacle position and box dimension is checked when the model is compiled. The view uses translucent voxels for visibility. The right-hand map panel uses the archived point-cloud appearance data and plots the actual simulated trace beside the stored plan.
 
-The aggregate record contains source checksums and diagnostics. Original point clouds, task bundles and state arrays remain with the project archive.
+The aggregate record contains source checksums and diagnostics. Original point clouds, task bundles and state arrays remain with the project archive. Public readers can verify media against `docs/asset-provenance.json` and `examples/go2_controller.py` against `publication_check.published_controller_sha256`. The recorded `controller_sha256` identifies the executed, earlier-formatted adapter; its syntax tree was checked against the published adapter. Checking the twelve source files and full state archives requires access to the original project data; published hashes alone do not provide independent reproduction.
 
 ## Motion and capture protocol
 
@@ -35,7 +35,7 @@ At each original observation pose, a capture request requires 0.60 s of consecut
 | Indoor | 4/22 | Incomplete | 193.26 s | 47.43 m | 5.49° | 1 | 0 |
 | Outdoor | 8/8 | Completed | 635.56 s | 227.76 m | 7.62° | 0 | 0 |
 
-The indoor run stopped on the segment following MHQ-004. The outdoor run reached all eight inspection poses and the stored return pose. Capture requests record position and heading errors for each stop. The videos retain the indoor stopping outcome.
+The indoor run stopped on the segment following MHQ-004. This contact is an outcome of the archived occupancy-0.50 collision model, stored route and current follower together; this run does not isolate map discretization, planned clearance or tracking error as the cause. The outdoor run reached all eight inspection poses and the stored return pose. Capture requests record position and heading errors for each stop. The videos retain the indoor stopping outcome.
 
 These are conditional simulation runs in a coarse map-derived model. A repeated deterministic run checks reproducibility. The earlier [three-profile comparison](navigation-comparison.md) uses its own archived execution conditions and results.
 

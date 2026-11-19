@@ -36,16 +36,22 @@ The images below project historical LiDAR corner points, planned routes, and tar
 
 The Go2 follows the original inspection route in environments derived from the project's recorded LiDAR SLAM maps. The terrain, obstacle voxels and inspection poses are read from verified project archives.
 
+**Outdoor · all 8 inspection poses and return**
+
+[![Go2 completing the recorded outdoor inspection route](assets/slam-outdoor.webp)](assets/slam-outdoor.mp4?raw=1)
+
+**Indoor · 4/22 inspection poses, then safety stop**
+
 [![Go2 following the recorded indoor map and inspection route](assets/slam-indoor.webp)](assets/slam-indoor.mp4?raw=1)
 
 [Indoor video](assets/slam-indoor.mp4?raw=1) · [Outdoor video](assets/slam-outdoor.mp4?raw=1) · [Input provenance, outcomes and capture errors](docs/physics-patrol.md)
 
-| Recorded map | Inspection poses reached | Return | Ending |
-| --- | ---: | --- | --- |
-| Indoor | 4/22 | Incomplete | Safety stop after one obstacle contact sample |
-| Outdoor | 8/8 | Completed | Returned to the original start |
+| Recorded map | Inspection poses reached | Return | Simulated time / travel | Ending |
+| --- | ---: | --- | --- | --- |
+| Indoor | 4/22 | Incomplete | 193.26 s / 47.43 m | After MHQ-004: safety stop after one obstacle contact sample |
+| Outdoor | 8/8 | Completed | 635.56 s / 227.76 m | Returned to the original start |
 
-The timestamped excerpts show integrated joint torque and foot-contact motion. The camera panel renders scan geometry with a documented virtual camera. Historical field imagery appears in the field demos above.
+The timestamped excerpts show integrated joint torque and foot-contact motion. The camera panel uses an approximate virtual camera on scan geometry, without measured camera-to-body extrinsics or RGB textures. It does not validate real camera images or target recognition. Historical field imagery appears in the field demos above.
 
 ## System architecture
 
