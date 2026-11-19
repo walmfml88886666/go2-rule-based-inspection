@@ -47,12 +47,18 @@ The camera panel is a geometric pinhole proxy attached to the Go2 chassis. It re
 
 ## Reproduce with project inputs
 
-Prepare the indexed input folder using the frozen-input mapping in the original project archive. Keep the source receipt as `verified-inputs.json`. The CLI verifies source checksums before use. The owner-side export uses the original indexed archive names: indoor input indices 002, 081, 109, 110, 113, 120, and outdoor indices 005, 082, 111, 112, 115, 121. Their member names and checksums are in the aggregate record.
+Prepare the indexed input folder using the frozen-input mapping in the original project archive. Keep the source receipt as `verified-inputs.json`. The CLI checks the receipt against the published frozen-source checksums, then verifies each input file before use. The owner-side export uses the original indexed archive names: indoor input indices 002, 081, 109, 110, 113, 120, and outdoor indices 005, 082, 111, 112, 115, 121. Their member names and checksums are in the aggregate record.
 
 ```bash
 python -m pip install mujoco==3.10.0 numpy==2.5.5 scipy==1.18.1 onnxruntime==1.32.0 Pillow==13.0.0
-python -m examples.slam_patrol   --inputs /path/to/verified-inputs   --scene indoor   --robot-xml /path/to/unitree_mujoco/go2.xml   --policy /path/to/archived/policy.onnx   --output indoor-run
-MUJOCO_GL=egl python -m examples.render_slam   --inputs /path/to/verified-inputs --scene indoor   --robot-xml /path/to/unitree_mujoco/go2.xml   --run indoor-run --ffmpeg /path/to/ffmpeg
+python -m examples.slam_patrol \
+  --inputs /path/to/verified-inputs --scene indoor \
+  --robot-xml /path/to/unitree_mujoco/go2.xml \
+  --policy /path/to/archived/policy.onnx --output indoor-run
+MUJOCO_GL=egl python -m examples.render_slam \
+  --inputs /path/to/verified-inputs --scene indoor \
+  --robot-xml /path/to/unitree_mujoco/go2.xml \
+  --run indoor-run --ffmpeg /path/to/ffmpeg
 ```
 
 Use `--scene outdoor` for the second map. The simulation writes the full state trace and event record. Rendering exports selected excerpts at 1x simulated speed with visible timestamps. It requires EGL, DejaVu Sans and an H.264-capable FFmpeg.

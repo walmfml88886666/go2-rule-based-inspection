@@ -37,7 +37,27 @@ def load_inputs(folder, scene):
         int(entry["extracted"][:3]) for entry in chosen
     } != set(ids):
         raise ValueError("The source receipt must cover every scene input exactly once")
+    reference = json.loads(
+        (
+            Path(__file__).resolve().parents[1] / "docs/data/slam-physics-results.json"
+        ).read_text()
+    )
+    expected = {
+        entry["member"]: entry
+        for case in reference["cases"]
+        if case["scene"] == scene
+        for entry in case["sources"]
+    }
     for entry in chosen:
+        pinned = expected.get(entry["member"])
+        if pinned is None or any(
+            entry[key] != pinned[key] for key in ("sha256", "bytes")
+        ):
+            raise ValueError(
+                "The source receipt differs from the pinned project snapshot"
+            )
+        if Path(entry["extracted"]).name != entry["extracted"]:
+            raise ValueError("Source filenames must stay inside the input folder")
         if sha(folder / entry["extracted"]) != entry["sha256"]:
             raise RuntimeError("The archived input checksum changed")
     task = json.loads(input_file(folder, ids[0]).read_text())
