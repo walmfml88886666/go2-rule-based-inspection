@@ -341,7 +341,7 @@ def run(args):
     result = {"mujoco": mj.__version__, "physics_dt_s": SIM_DT, "policy_dt_s": CONTROL_DT,
               "model_xml_sha256": digest(args.robot_xml),
               "planner_module_sha256": digest(args.field_planner),
-              "policy_sha256": digest(args.policy), 
+              "policy_sha256": digest(args.policy),
               "physics_steps": steps, "simulation_s": steps*SIM_DT,
               "position_m": data.qpos[:3].tolist(), "phase": phase, "max_body_tilt_deg": math.degrees(max_tilt),
               "obstacle_contact_samples": obstacles, "non_foot_floor_contact_samples_by_body": dict(non_foot_floor_contacts), "foot_samples_air_ground": foot_samples,
