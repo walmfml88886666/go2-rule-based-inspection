@@ -1,0 +1,286 @@
+{
+  "scope": "Physical execution of archived project SLAM-map inspection tasks",
+  "cases": [
+    {
+      "scene": "indoor",
+      "physics_dt_s": 0.002,
+      "policy_dt_s": 0.02,
+      "mujoco_version": "3.10.0",
+      "gravity_m_s2": [
+        0.0,
+        0.0,
+        -9.81
+      ],
+      "static_geometry_count": 16998,
+      "robot_xml_sha256": "2014a3d76e30f17ab9447d8a67bd015291f74fa4d71ae30d005f1a32bd693d4b",
+      "optical_view_scope": "Geometric pinhole proxy; no measured camera-to-body transform or RGB texture",
+      "required_stops": 23,
+      "completed_stops": 4,
+      "required_inspection_targets": 22,
+      "completed_inspection_targets": 4,
+      "return_completed": false,
+      "stop_limit": 100,
+      "simulation_s": 193.26,
+      "physics_steps": 96630,
+      "max_body_tilt_deg": 5.490354301051036,
+      "obstacle_contact_samples": 1,
+      "non_foot_floor_contact_samples": 0,
+      "integrated_distance_m": 47.43115483550244,
+      "foot_air_samples": [
+        27059,
+        25194,
+        18604,
+        25481
+      ],
+      "foot_ground_samples": [
+        32941,
+        34806,
+        41396,
+        34519
+      ],
+      "events": [
+        {
+          "event": "capture",
+          "id": "M-001",
+          "t_s": 20.56,
+          "position_error_m": 0.1418232592153808,
+          "heading_error_deg": 4.935588344339235,
+          "speed_m_s": 0.00041172636849905604
+        },
+        {
+          "event": "capture",
+          "id": "HP-010",
+          "t_s": 133.54,
+          "position_error_m": 0.1638819443572043,
+          "heading_error_deg": 4.980893348125411,
+          "speed_m_s": 0.0007978723177356935
+        },
+        {
+          "event": "capture",
+          "id": "HP-009",
+          "t_s": 167.28,
+          "position_error_m": 0.10080484632215424,
+          "heading_error_deg": 4.895057056378793,
+          "speed_m_s": 3.4198054313372634e-05
+        },
+        {
+          "event": "capture",
+          "id": "MHQ-004",
+          "t_s": 187.62,
+          "position_error_m": 0.16418143775099142,
+          "heading_error_deg": 4.509014756819188,
+          "speed_m_s": 0.0005904595803147265
+        },
+        {
+          "event": "safety_stop",
+          "t_s": 193.258,
+          "body_tilt_deg": 2.1596167972790505,
+          "obstacle_contact_samples": 1,
+          "non_foot_floor_contact_samples": 0
+        }
+      ],
+      "sources": [
+        {
+          "member": "files/002/reloc_map.pcd",
+          "sha256": "da9f3cc6bfd65915592327aaf3792b404bd99977796b1e7a2a453bb2b171d0c3",
+          "bytes": 2961042
+        },
+        {
+          "member": "files/081/exp4_task.json",
+          "sha256": "6505ab3e15e07f5687b48558f3a15805cfe705bb13b044d3aa00d490dfaacddc",
+          "bytes": 52834
+        },
+        {
+          "member": "files/109/physics.xml",
+          "sha256": "d240365f76df41326e5471b2a20fc26da9ba7585d576be7439b81de47ed68af6",
+          "bytes": 3249611
+        },
+        {
+          "member": "files/110/terrain.npz",
+          "sha256": "0c8b0d89279054100222aa0672f81e257de80411fb2bb242a574c5259f9edbe2",
+          "bytes": 312128
+        },
+        {
+          "member": "files/113/appearance.npz",
+          "sha256": "dafca2e1c66c6cf46085196601a52a2b5512e8687a3851993deb38d2f229df5a",
+          "bytes": 2709797
+        },
+        {
+          "member": "files/120/grid.npz",
+          "sha256": "60aec6008c8be4095bf9511bc80cc1180dffda32f154bda5c41d21c22f5a5bb5",
+          "bytes": 584893
+        }
+      ],
+      "policy_sha256": "61f5174e862659305a7c219026bc02f215034ae26f1fdfdaf18fc907c809c138",
+      "controller_sha256": "672e73c7b148102682f841a0bca1b21c9dc3cc292f3b3610c22ef005a9166f7d",
+      "phase": "follow",
+      "full_state_archive_sha256": "8e35201cafca3883fc4e76fd5845053ca9495afd8373b3194089709306c02196"
+    },
+    {
+      "scene": "outdoor",
+      "physics_dt_s": 0.002,
+      "policy_dt_s": 0.02,
+      "mujoco_version": "3.10.0",
+      "gravity_m_s2": [
+        0.0,
+        0.0,
+        -9.81
+      ],
+      "static_geometry_count": 61417,
+      "robot_xml_sha256": "2014a3d76e30f17ab9447d8a67bd015291f74fa4d71ae30d005f1a32bd693d4b",
+      "optical_view_scope": "Geometric pinhole proxy; no measured camera-to-body transform or RGB texture",
+      "required_stops": 9,
+      "completed_stops": 9,
+      "required_inspection_targets": 8,
+      "completed_inspection_targets": 8,
+      "return_completed": true,
+      "stop_limit": 100,
+      "simulation_s": 635.5600000000001,
+      "physics_steps": 317780,
+      "max_body_tilt_deg": 7.622457623970331,
+      "obstacle_contact_samples": 0,
+      "non_foot_floor_contact_samples": 0,
+      "integrated_distance_m": 227.76213634101597,
+      "foot_air_samples": [
+        132581,
+        124671,
+        93381,
+        124254
+      ],
+      "foot_ground_samples": [
+        153299,
+        161209,
+        192499,
+        161626
+      ],
+      "events": [
+        {
+          "event": "capture",
+          "id": "D-001",
+          "t_s": 123.02,
+          "position_error_m": 0.15584600214616964,
+          "heading_error_deg": 4.098894881530006,
+          "speed_m_s": 0.0005677051187901223
+        },
+        {
+          "event": "capture",
+          "id": "DP-001",
+          "t_s": 173.16,
+          "position_error_m": 0.12324498213591384,
+          "heading_error_deg": 0.4611997331581758,
+          "speed_m_s": 0.00116940186177733
+        },
+        {
+          "event": "capture",
+          "id": "D-002",
+          "t_s": 204.5,
+          "position_error_m": 0.11944304417721245,
+          "heading_error_deg": 3.0238520279719916,
+          "speed_m_s": 0.0015334708899095585
+        },
+        {
+          "event": "capture",
+          "id": "SD-001",
+          "t_s": 255.08,
+          "position_error_m": 0.15686134173311153,
+          "heading_error_deg": 4.985813829737549,
+          "speed_m_s": 0.000731498354425187
+        },
+        {
+          "event": "capture",
+          "id": "LJT-002",
+          "t_s": 369.28000000000003,
+          "position_error_m": 0.16238515062866513,
+          "heading_error_deg": 2.945944344516576,
+          "speed_m_s": 0.0003959795085817773
+        },
+        {
+          "event": "capture",
+          "id": "SM-001",
+          "t_s": 431.8,
+          "position_error_m": 0.18720487271408554,
+          "heading_error_deg": 4.171827520103492,
+          "speed_m_s": 0.001224352971689846
+        },
+        {
+          "event": "capture",
+          "id": "LJT-001",
+          "t_s": 473.66,
+          "position_error_m": 0.1756722399789095,
+          "heading_error_deg": 4.530573331896528,
+          "speed_m_s": 0.0008586204338910491
+        },
+        {
+          "event": "capture",
+          "id": "DD-001",
+          "t_s": 544.44,
+          "position_error_m": 0.1666248405897046,
+          "heading_error_deg": 3.583497529040608,
+          "speed_m_s": 0.0006863956618677983
+        },
+        {
+          "event": "return_arrived",
+          "id": "RETURN_TO_START",
+          "t_s": 631.74,
+          "position_error_m": 0.1492132762590289,
+          "heading_error_deg": 4.856026240352987,
+          "speed_m_s": 0.0009105544503201104
+        }
+      ],
+      "sources": [
+        {
+          "member": "files/005/reloc_map.pcd",
+          "sha256": "510e23599f36153d1e56cb01fa251d0e3c4792877b248f31d7a5d4d260466158",
+          "bytes": 16624832
+        },
+        {
+          "member": "files/082/exp4_task.json",
+          "sha256": "4da5f60954a4495459b0e632705f8cd3dc8803966b927dc691b78ba259bd99da",
+          "bytes": 62818
+        },
+        {
+          "member": "files/111/physics.xml",
+          "sha256": "57f9dff5c37ddd8511f8f5a117dba68ba97f74f7047206a18c43e803fd6b6a9c",
+          "bytes": 12080052
+        },
+        {
+          "member": "files/112/terrain.npz",
+          "sha256": "17001752fadb456e4e9c8b9c4776addd773feeb669510101c6545a740b5291ad",
+          "bytes": 1705687
+        },
+        {
+          "member": "files/115/appearance.npz",
+          "sha256": "f534a362c6dc4b20908ecf9969d71bfaf525d78c0d2584348707ea18a06f9f92",
+          "bytes": 7121747
+        },
+        {
+          "member": "files/121/grid.npz",
+          "sha256": "70e2901705cfd010710c64c991f09930378d42cd79861653e0db5cdd8cdca09a",
+          "bytes": 3409369
+        }
+      ],
+      "policy_sha256": "61f5174e862659305a7c219026bc02f215034ae26f1fdfdaf18fc907c809c138",
+      "controller_sha256": "672e73c7b148102682f841a0bca1b21c9dc3cc292f3b3610c22ef005a9166f7d",
+      "phase": "segment_complete",
+      "full_state_archive_sha256": "94d2027075c9a42441ac0b198312ac0ac3aadc72208a60e619d7a1bf46a208eb"
+    }
+  ],
+  "deterministic_repeat": [
+    {
+      "scene": "indoor",
+      "matching_physical_states": 4832,
+      "matching_capture_poses": 4,
+      "deterministic_repeat_matches": true
+    },
+    {
+      "scene": "outdoor",
+      "matching_physical_states": 15889,
+      "matching_capture_poses": 9,
+      "deterministic_repeat_matches": true
+    }
+  ],
+  "publication_check": {
+    "controller_ast_matches_executed": true,
+    "published_controller_sha256": "455c0de93c6b6848002530b96a503013e28b2f2f8e7a23c8c06a3117d593160c"
+  }
+}
