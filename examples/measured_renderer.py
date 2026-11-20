@@ -35,6 +35,18 @@ class MeasuredRenderer:
         levels = numpy_to_vtk(np.ascontiguousarray(local[:, 2]), deep=True)
         levels.SetName("height")
         poly.GetPointData().SetScalars(levels)
+        locator = vtk.vtkStaticPointLocator()
+        locator.SetDataSet(poly)
+        locator.BuildLocator()
+        nearest = vtk.vtkIdList()
+        radii = np.empty(len(local), dtype=np.float32)
+        for i, point in enumerate(local):
+            locator.FindClosestNPoints(5, point, nearest)
+            neighbor = local[nearest.GetId(nearest.GetNumberOfIds() - 1)]
+            radii[i] = np.clip(0.7 * np.linalg.norm(neighbor - point), 0.045, 0.095)
+        radius_array = numpy_to_vtk(radii, deep=True)
+        radius_array.SetName("display_radius")
+        poly.GetPointData().AddArray(radius_array)
         normals = vtk.vtkPCANormalEstimation()
         normals.SetInputData(poly)
         normals.SetSampleSize(16)
@@ -43,7 +55,7 @@ class MeasuredRenderer:
         normal_poly = normals.GetOutput()
         normal_poly.GetPointData().GetNormals().SetName("Normals")
         disk = vtk.vtkDiskSource()
-        disk.SetOuterRadius(0.105)
+        disk.SetOuterRadius(1.0)
         disk.SetInnerRadius(0)
         disk.SetCircumferentialResolution(12)
         disk.SetRadialResolution(1)
@@ -55,7 +67,10 @@ class MeasuredRenderer:
         mapper = vtk.vtkGlyph3DMapper()
         mapper.SetInputData(normal_poly)
         mapper.SetSourceConnection(transformed.GetOutputPort())
-        mapper.ScalingOff()
+        mapper.SetScaleArray("display_radius")
+        mapper.SetScaleModeToScaleByMagnitude()
+        mapper.SetScaleFactor(1.0)
+        mapper.ScalingOn()
         mapper.SetOrientationArray("Normals")
         mapper.SetOrientationModeToDirection()
         mapper.OrientOn()
@@ -73,7 +88,7 @@ class MeasuredRenderer:
         actor.GetProperty().SetAmbient(0.65)
         actor.GetProperty().SetDiffuse(0.35)
         self.renderer = vtk.vtkRenderer()
-        self.renderer.SetBackground(0.92, 0.95, 0.97)
+        self.renderer.SetBackground(0.835, 0.862, 0.878)
         self.renderer.AddActor(actor)
         self.window = vtk.vtkRenderWindow()
         self.window.SetOffScreenRendering(1)
@@ -118,6 +133,27 @@ class MeasuredRenderer:
             mesh_actor.SetUserMatrix(matrix)
             self.renderer.AddActor(mesh_actor)
             self.meshes.append((geom, matrix))
+        self.shadows = []
+        for radius, opacity in [
+            (0.45, 0.025),
+            (0.36, 0.035),
+            (0.27, 0.045),
+            (0.18, 0.055),
+        ]:
+            disk = vtk.vtkDiskSource()
+            disk.SetOuterRadius(radius)
+            disk.SetInnerRadius(0)
+            disk.SetCircumferentialResolution(40)
+            shadow_mapper = vtk.vtkPolyDataMapper()
+            shadow_mapper.SetInputConnection(disk.GetOutputPort())
+            shadow = vtk.vtkActor()
+            shadow.SetMapper(shadow_mapper)
+            shadow.SetScale(1, 0.55, 1)
+            shadow.GetProperty().SetColor(0.08, 0.10, 0.12)
+            shadow.GetProperty().SetOpacity(opacity)
+            shadow.GetProperty().LightingOff()
+            self.renderer.AddActor(shadow)
+            self.shadows.append(shadow)
         self.trace_points = vtk.vtkPoints()
         self.trace_poly = vtk.vtkPolyData()
         self.trace_poly.SetPoints(self.trace_points)
@@ -129,7 +165,8 @@ class MeasuredRenderer:
         trace_mapper.SetInputConnection(tube.GetOutputPort())
         trace_actor = vtk.vtkActor()
         trace_actor.SetMapper(trace_mapper)
-        trace_actor.GetProperty().SetColor(0.06, 0.8, 0.57)
+        trace_actor.GetProperty().SetColor(0.33, 0.84, 0.73)
+        trace_actor.GetProperty().LightingOff()
         self.renderer.AddActor(trace_actor)
         self.capture = vtk.vtkWindowToImageFilter()
         self.capture.SetInput(self.window)
@@ -137,6 +174,8 @@ class MeasuredRenderer:
         self.point_count = len(local)
 
     def render(self, data, trace):
+        for shadow in self.shadows:
+            shadow.SetPosition(data.qpos[0], data.qpos[1], float(trace[-1, 2] - 0.025))
         for geom, matrix in self.meshes:
             rotation = data.geom_xmat[geom].reshape(3, 3)
             for row in range(3):
@@ -152,7 +191,7 @@ class MeasuredRenderer:
         self.trace_poly.Modified()
         camera = self.renderer.GetActiveCamera()
         camera.SetFocalPoint(*(data.qpos[:3] + [0, 0, 0.1]))
-        camera.SetPosition(*(data.qpos[:3] + np.array([-0.7, -0.8, 0.6]) * 5))
+        camera.SetPosition(*(data.qpos[:3] + np.array([-0.7, -0.8, 0.6]) * 4.5))
         camera.SetViewUp(0, 0, 1)
         camera.SetClippingRange(0.03, 1000)
         self.renderer.SetPass(self.edl)
@@ -174,7 +213,7 @@ class MeasuredRenderer:
             .reshape(height, width, 3)[::-1]
             .copy()
         )
-        return np.rint(0.35 * shaded + 0.65 * base).astype(np.uint8)
+        return np.rint(0.15 * shaded + 0.85 * base).astype(np.uint8)
 
     def close(self):
         self.edl.ReleaseGraphicsResources(self.window)

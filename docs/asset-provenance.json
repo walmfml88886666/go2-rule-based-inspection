@@ -109,13 +109,13 @@
     "file": "assets/indoor-mission-poster.jpg",
     "sha256": "8152d36ede7f94a17a96bb3bb01afe0d1c9d37ea82877f3ba7f37f9010f15a36",
     "source": "One archived indoor mission with recorded positions, a LiDAR corner cloud, and capture events",
-    "treatment": "1600 × 900 frame. Time-compressed field replay."
+    "treatment": "1600 \u00d7 900 frame. Time-compressed field replay."
   },
   {
     "file": "indoor-mission-replay.mp4",
     "sha256": "4ee467c54800babc49813c90a20566df97d81d762b425832839df0545a30ab6b",
     "source": "One archived indoor mission with recorded positions, a LiDAR corner cloud, and capture events",
-    "treatment": "1600 × 900 video. Time-compressed field replay.",
+    "treatment": "1600 \u00d7 900 video. Time-compressed field replay.",
     "release_asset": true,
     "release_tag": "v0.3.0"
   },
@@ -129,13 +129,13 @@
     "file": "assets/obstacle-replan-poster.jpg",
     "sha256": "12116a533ef7cc879668fd2f5acd8e4ce848c550defb00198c018e753476ecdc",
     "source": "Synthetic occupancy-grid A* replan rendered with the MuJoCo Menagerie Go2 model",
-    "treatment": "1600 × 900 frame. Prescribed-pose visualization of the computed routes."
+    "treatment": "1600 \u00d7 900 frame. Prescribed-pose visualization of the computed routes."
   },
   {
     "file": "obstacle-replan-mujoco.mp4",
     "sha256": "0891c1d5106e58a7925831476a13ae78c34401af2e35f2b489edccc53f94315f",
     "source": "Synthetic occupancy-grid A* replan rendered with the MuJoCo Menagerie Go2 model",
-    "treatment": "1600 × 900 video. Prescribed-pose visualization of the computed routes.",
+    "treatment": "1600 \u00d7 900 video. Prescribed-pose visualization of the computed routes.",
     "release_asset": true,
     "release_tag": "v0.3.0"
   },
@@ -147,9 +147,9 @@
   },
   {
     "file": "assets/slam-indoor.jpg",
-    "sha256": "57dcedad30d4984f45673e5c442a6b8ac8e970114e380059cd9ac261c4023ed8",
-    "source": "Verified project SLAM terrain/obstacle archives and original task; docs/data/slam-physics-results.json",
-    "treatment": "Recorded physical state excerpts and virtual scan-geometry camera; no RGB texture or measured camera-to-body extrinsics"
+    "sha256": "cc6235bffe8ef88469cb1d8f34f8a8a9d1502dd6d3506cca9ffea40a93013cd0",
+    "source": "Original measured localization clouds and unchanged archived MuJoCo state sequences; docs/data/patrol-display.json",
+    "treatment": "Visualization only: adaptive tangent surfels, display height colors, posed Go2 mesh and mission inset; methods and preset comparisons in docs/visual-comparison.md."
   },
   {
     "file": "assets/slam-indoor.mp4",
@@ -171,9 +171,9 @@
   },
   {
     "file": "assets/slam-outdoor.jpg",
-    "sha256": "802ab9dd1a7cb14de5e48754340680659a41a6ef4f2b5a98d1cf41ea3899e471",
-    "source": "Verified project SLAM terrain/obstacle archives and original task; docs/data/slam-physics-results.json",
-    "treatment": "Recorded physical state excerpts and virtual scan-geometry camera; no RGB texture or measured camera-to-body extrinsics"
+    "sha256": "05d63cee10464c5029fa35ac61cbe3e3ae75f5927f8ee3f2f43a93ce4ca089f6",
+    "source": "Original measured localization clouds and unchanged archived MuJoCo state sequences; docs/data/patrol-display.json",
+    "treatment": "Visualization only: adaptive tangent surfels, display height colors, posed Go2 mesh and mission inset; methods and preset comparisons in docs/visual-comparison.md."
   },
   {
     "file": "assets/slam-outdoor.mp4",
@@ -198,7 +198,7 @@
     "file": "assets/slam-indoor-walk.mp4",
     "sha256": "eefab5f22c20ba66ea11e67d9944d1c15e856cee88f87137fee2225998c965f8",
     "source": "Indoor physics state archive in docs/data/slam-physics-results.json",
-    "treatment": "Continuous 11-second close follow view at 1×, rendered by examples/render_showcase.py."
+    "treatment": "Continuous 11-second close follow view at 1\u00d7, rendered by examples/render_showcase.py."
   },
   {
     "file": "assets/field-exterior-indoor.webp",
@@ -211,7 +211,7 @@
     "file": "assets/slam-indoor-walk.webp",
     "sha256": "ecffa24f7d4c3e416d81b082e24870fa415d8da49d21b520066b638359323116",
     "source": "Indoor physics state archive in docs/data/slam-physics-results.json",
-    "treatment": "Continuous 11-second close follow view at 1×, rendered by examples/render_showcase.py."
+    "treatment": "Continuous 11-second close follow view at 1\u00d7, rendered by examples/render_showcase.py."
   },
   {
     "file": "assets/field-exterior-outdoor.mp4",
@@ -224,7 +224,7 @@
     "file": "assets/slam-outdoor-walk.mp4",
     "sha256": "b8f067eb40bad3683b77d5ca110d960c162f879c23bcbced48269182d48af5b0",
     "source": "Outdoor physics state archive in docs/data/slam-physics-results.json",
-    "treatment": "Continuous 11-second close follow view at 1×, rendered by examples/render_showcase.py."
+    "treatment": "Continuous 11-second close follow view at 1\u00d7, rendered by examples/render_showcase.py."
   },
   {
     "file": "assets/field-exterior-outdoor.webp",
@@ -237,7 +237,7 @@
     "file": "assets/slam-outdoor-walk.webp",
     "sha256": "12a46c342007fbab3263c01b30b873b6ad9cd171bd12eb268150eda39ade34b4",
     "source": "Outdoor physics state archive in docs/data/slam-physics-results.json",
-    "treatment": "Continuous 11-second close follow view at 1×, rendered by examples/render_showcase.py."
+    "treatment": "Continuous 11-second close follow view at 1\u00d7, rendered by examples/render_showcase.py."
   },
   {
     "file": "assets/indoor-mission-replay.mp4",
@@ -259,27 +259,27 @@
   },
   {
     "file": "assets/slam-indoor-route.mp4",
-    "sha256": "d692913e3d3ea8508098292c42f14f399912288f2351c437205ab7376a1020f0",
-    "source": "Indoor localization cloud and existing MuJoCo state archive",
-    "treatment": "Synchronized fixed oblique measured point cloud and local height-colored MuJoCo replay from unchanged archived states."
+    "sha256": "67f8a99d1e9a064db35cedd1d8ac3c2e64dba67a8b730769323d83e428ec3e93",
+    "source": "Original measured localization clouds and unchanged archived MuJoCo state sequences; docs/data/patrol-display.json",
+    "treatment": "Visualization only: adaptive tangent surfels, display height colors, posed Go2 mesh and mission inset; methods and preset comparisons in docs/visual-comparison.md."
   },
   {
     "file": "assets/slam-indoor-route.webp",
-    "sha256": "bdbf9e917280845175760adbc53b031dbadbbd40ba50207db70868799c571a2d",
-    "source": "Indoor localization cloud and existing MuJoCo state archive",
-    "treatment": "Synchronized fixed oblique measured point cloud and local height-colored MuJoCo replay from unchanged archived states."
+    "sha256": "de12d5599b8c5b94a6800f67ba1e74d545b75f8fd1b9c3e0fa08fc644a424aee",
+    "source": "Original measured localization clouds and unchanged archived MuJoCo state sequences; docs/data/patrol-display.json",
+    "treatment": "Visualization only: adaptive tangent surfels, display height colors, posed Go2 mesh and mission inset; methods and preset comparisons in docs/visual-comparison.md."
   },
   {
     "file": "assets/slam-outdoor-route.mp4",
-    "sha256": "739d4f73df85a0a9a63d7d0de5122e27c8901a8d5da65a176b4e92cd671e6d33",
-    "source": "Outdoor localization cloud and existing MuJoCo state archive",
-    "treatment": "Synchronized fixed oblique measured point cloud and local height-colored MuJoCo replay from unchanged archived states."
+    "sha256": "9865266d3f13a514f75ec43ad20101a1a4a3f21328225e32006b6ae7b117035c",
+    "source": "Original measured localization clouds and unchanged archived MuJoCo state sequences; docs/data/patrol-display.json",
+    "treatment": "Visualization only: adaptive tangent surfels, display height colors, posed Go2 mesh and mission inset; methods and preset comparisons in docs/visual-comparison.md."
   },
   {
     "file": "assets/slam-outdoor-route.webp",
-    "sha256": "018e318aa6ff53e39cfb6f202eb56f8fedaaa56b07c482b78dcefb8f8e26a06c",
-    "source": "Outdoor localization cloud and existing MuJoCo state archive",
-    "treatment": "Synchronized fixed oblique measured point cloud and local height-colored MuJoCo replay from unchanged archived states."
+    "sha256": "c0b4c40042f3f1e7b263a887939e1ccaf82fa5f8d2b8474f980e4014514ce8e2",
+    "source": "Original measured localization clouds and unchanged archived MuJoCo state sequences; docs/data/patrol-display.json",
+    "treatment": "Visualization only: adaptive tangent surfels, display height colors, posed Go2 mesh and mission inset; methods and preset comparisons in docs/visual-comparison.md."
   },
   {
     "file": "assets/inspection-architecture.svg",
@@ -289,9 +289,9 @@
   },
   {
     "file": "assets/navigation-sight-layers.svg",
-    "sha256": "4394a1b594242de0894643f58876dc070f330c08ce3ea670f412ef7175f00f40",
-    "source": "Go2 Patrol project documentation",
-    "treatment": "Original schematic based on grid pitch, occupancy bands, and thresholds in docs/mapping.md."
+    "sha256": "ddd126264fab51804a1de9aa2ca59782c30436417af96c83e13ede1d723824cc",
+    "source": "Original planner height bands and independent two-return tests",
+    "treatment": "Schematic side elevation and aligned square cell outputs; illustrative returns, not measured obstacle samples."
   },
   {
     "file": "assets/inspection-architecture.png",
@@ -301,9 +301,9 @@
   },
   {
     "file": "assets/navigation-sight-layers.png",
-    "sha256": "b23f449f11b763a6464291b28cbab01afc7a3e8d40da1475a3e5cb9df716ff4c",
-    "source": "Project SLAM localization maps and task geometry; docs/visual-comparison.md",
-    "treatment": "Original scientific visualization or diagram. Display processing and renderer comparisons are described in docs/visual-comparison.md."
+    "sha256": "68e7af9cc32ef23e96971fa6413f34130e773e4a62348bd7e2862591ba7277ef",
+    "source": "Original planner height bands and independent two-return tests",
+    "treatment": "Schematic side elevation and aligned square cell outputs; illustrative returns, not measured obstacle samples."
   },
   {
     "file": "assets/indoor-scene-3d.png",
@@ -352,5 +352,41 @@
     "sha256": "6917e7a55e3c7cecb34cfe576bd7c47b18187d3febf33c65f2dff0a07122c0f0",
     "source": "Project SLAM localization maps and task geometry; docs/visual-comparison.md",
     "treatment": "Original scientific visualization or diagram. Display processing and renderer comparisons are described in docs/visual-comparison.md."
+  },
+  {
+    "file": "assets/system-overview.png",
+    "sha256": "d2b51231b4c4dfdcf9348353d9e0bdcd5ac328f4b993655614087c3a278c37ca",
+    "source": "Published metric LiDAR datasets and original route JSON; existing supervised project workflow",
+    "treatment": "Integrated draw.io workflow, original 2D maps, route and observation poses; editable master and exported image."
+  },
+  {
+    "file": "assets/system-overview.svg",
+    "sha256": "1fadc6461a963a423bb3349f2ed899eee5f5498a67df817f437a0b56b7c07a9a",
+    "source": "Published metric LiDAR datasets and original route JSON; existing supervised project workflow",
+    "treatment": "Integrated draw.io workflow, original 2D maps, route and observation poses; editable master and exported image."
+  },
+  {
+    "file": "assets/patrol-display-comparison.jpg",
+    "sha256": "d16b2bb09506d0a416eca0ff0f648b99e8a9785f0b963bb69af9141ec8458f4f",
+    "source": "Original measured localization clouds and unchanged archived MuJoCo state sequences; docs/data/patrol-display.json",
+    "treatment": "Visualization only: adaptive tangent surfels, display height colors, posed Go2 mesh and mission inset; methods and preset comparisons in docs/visual-comparison.md."
+  },
+  {
+    "file": "assets/patrol-render-presets.jpg",
+    "sha256": "e5ecef5ec0e134f12224c75a1d2e7865ae04fe2d2433494c97a9100125552b68",
+    "source": "Original measured localization clouds and unchanged archived MuJoCo state sequences; docs/data/patrol-display.json",
+    "treatment": "Visualization only: adaptive tangent surfels, display height colors, posed Go2 mesh and mission inset; methods and preset comparisons in docs/visual-comparison.md."
+  },
+  {
+    "file": "docs/system-overview.drawio",
+    "sha256": "d254d8e0e9f5d6c6c55b58b9cb3d6e247b26ba9857bf964c9d5ac01dad410eea",
+    "source": "Published metric LiDAR datasets and original route JSON; existing supervised project workflow",
+    "treatment": "Integrated draw.io workflow, original 2D maps, route and observation poses; editable master and exported image."
+  },
+  {
+    "file": "docs/navigation-sight-principle.drawio",
+    "sha256": "1bad1d116d2a48865301ddb79e77fe46bce06eba69e4f7c5305b64061edbec3f",
+    "source": "Original planner height bands and independent two-return tests",
+    "treatment": "Schematic side elevation and aligned square cell outputs; illustrative returns, not measured obstacle samples."
   }
 ]

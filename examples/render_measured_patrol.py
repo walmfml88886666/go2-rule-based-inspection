@@ -90,7 +90,7 @@ class SceneContext:
         d.text(
             (x - 20, y + 15),
             "Go2",
-            font=font(21, True),
+            font=font(32, True),
             fill=WHITE,
             stroke_width=2,
             stroke_fill=BG,
@@ -183,22 +183,20 @@ def main():
             inset = context.render(
                 route, np.vstack([qpos[: i + 1 : 5, :2], qpos[i, :2]]), goal, heading
             )
-            d.rectangle((51, 510, 571, 991), fill=BG, outline="#50718a", width=2)
-            d.text((62, 520), "3D / Mission context", font=font(25, True), fill=WHITE)
-            image.paste(inset, (61, 565))
+            d.rectangle((51, 650, 411, 990), fill=BG, outline="#50718a", width=2)
+            d.text((61, 660), "3D / Mission context", font=font(25, True), fill=WHITE)
+            image.paste(inset.resize((340, 279), Image.Resampling.LANCZOS), (61, 702))
             d = ImageDraw.Draw(image)
+            d.rounded_rectangle((441, 948, 1070, 992), radius=7, fill=BG)
             d.text(
-                (62, 959), "Mint: driven   Amber: next stop", font=font(22), fill=WHITE
-            )
-            d.rounded_rectangle((1260, 884, 1747, 982), radius=10, fill=BG)
-            d.text(
-                (1276, 894),
-                "Height above scene ground reference",
-                font=font(21),
+                (455, 955),
+                "Mint: recent motion · Amber: next stop",
+                font=font(24),
                 fill=WHITE,
             )
+            d.rounded_rectangle((1290, 884, 1747, 982), radius=10, fill=BG)
+            d.text((1306, 893), "Height above reference (m)", font=font(26), fill=WHITE)
             for k in range(320):
-                h = renderer.floor + renderer.height_span * k / 319
                 position = k / 319 * 4
                 j = min(3, int(position))
                 colors = np.array(
@@ -210,12 +208,9 @@ def main():
                         + colors[j + 1] * (position - j)
                     ).astype(int)
                 )
-                d.line((1280 + k, 930, 1280 + k, 942), fill=rgb)
+                d.line((1310 + k, 934, 1310 + k, 945), fill=rgb)
             d.text(
-                (1278, 949),
-                f"0                         {renderer.height_span:g} m (clipped)",
-                font=font(20),
-                fill=WHITE,
+                (1308, 949), "0                  2 (clipped)", font=font(24), fill=WHITE
             )
             full = f"{summary['completed_inspection_targets']}/{summary['required_inspection_targets']} stops"
             outcome = (
@@ -240,8 +235,8 @@ def main():
             d.text(
                 (35, 1080),
                 "Display surfels are not collision geometry. Original state sequence and outcomes are unchanged.",
-                font=font(22),
-                fill="#b0c5d4",
+                font=font(25),
+                fill="#c5d5e0",
             )
             if args.preview or i == keep[len(keep) // 2]:
                 image.save(
@@ -265,7 +260,9 @@ def main():
                 point_count=renderer.point_count,
                 ground_reference_z_m=renderer.floor,
                 height_span_m=renderer.height_span,
-                surfel_radius_m=0.105,
+                surfel_radius_range_m=[0.045, 0.095],
+                surfel_radius_rule="clip(0.7 * distance_to_4th_neighbor, 0.045, 0.095)",
+                edl_weight=0.15,
                 pca_neighbors=16,
                 displayed_time_s=[float(times[keep[0]]), float(times[keep[-1]])],
             ),

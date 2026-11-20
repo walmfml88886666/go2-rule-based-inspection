@@ -1,0 +1,54 @@
+{
+  "indoor": {
+    "point_count": 74869,
+    "ground_reference_z_m": -0.5262031555175781,
+    "height_span_m": 2.0,
+    "surfel_radius_range_m": [
+      0.045,
+      0.095
+    ],
+    "surfel_radius_rule": "clip(0.7 * distance_to_4th_neighbor, 0.045, 0.095)",
+    "edl_weight": 0.15,
+    "pca_neighbors": 16,
+    "displayed_time_s": [
+      2.0020000000000002,
+      12.962
+    ],
+    "state_archive_sha256": "8e35201cafca3883fc4e76fd5845053ca9495afd8373b3194089709306c02196",
+    "frames": 275,
+    "fps": 25
+  },
+  "outdoor": {
+    "point_count": 112306,
+    "ground_reference_z_m": -0.4937145709991455,
+    "height_span_m": 2.0,
+    "surfel_radius_range_m": [
+      0.045,
+      0.095
+    ],
+    "surfel_radius_rule": "clip(0.7 * distance_to_4th_neighbor, 0.045, 0.095)",
+    "edl_weight": 0.15,
+    "pca_neighbors": 16,
+    "displayed_time_s": [
+      110.002,
+      120.962
+    ],
+    "state_archive_sha256": "94d2027075c9a42441ac0b198312ac0ac3aadc72208a60e619d7a1bf46a208eb",
+    "frames": 275,
+    "fps": 25
+  },
+  "renderer": {
+    "mujoco": "3.10.0",
+    "vtk": "9.7.2",
+    "numpy": "2.5.5",
+    "Pillow": "13.0.0",
+    "edl_weight": 0.15,
+    "camera_offset_m": [
+      -3.15,
+      -3.6,
+      2.7
+    ],
+    "shadow": "synthetic display cue, not measured light or foot-contact evidence",
+    "physics": "No integration; mj_forward applied to archived qpos"
+  }
+}

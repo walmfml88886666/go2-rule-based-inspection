@@ -4,7 +4,10 @@ Export the masters with the official draw.io Desktop CLI; see docs/visual-compar
 """
 
 from pathlib import Path
-import json, base64, xml.etree.ElementTree as ET
+import base64
+import io
+import json
+import xml.etree.ElementTree as ET
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont
 from tools.point_cloud import read_xyz, map_view
@@ -176,8 +179,8 @@ for i, scene in enumerate(("indoor", "outdoor")):
     ft = ImageFont.truetype("DejaVuSans.ttf", 19)
     dr.line((20, 393, 20 + scale * 5, 393), fill=FG, width=3)
     dr.text((20, 399), "5 m", font=ft, fill=FG, stroke_width=1, stroke_fill=BG)
-    path = A / f"{scene}-overview-panel.png"
-    im.save(path)
+    buffer = io.BytesIO()
+    im.save(buffer, format="PNG")
     x = 42 + i * 780
     box(
         g,
@@ -189,7 +192,7 @@ for i, scene in enumerate(("indoor", "outdoor")):
         size=32,
         bold=True,
     )
-    data = base64.b64encode(path.read_bytes()).decode()
+    data = base64.b64encode(buffer.getvalue()).decode()
     box(
         g,
         x,
