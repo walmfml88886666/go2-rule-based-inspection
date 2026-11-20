@@ -17,9 +17,9 @@ A matched 1,040-second indoor replay used the same LIO-SAM code and sensor recor
 
 ![Height-colored side views of the indoor mapping calibration comparison with estimated trajectories](assets/mapping-calibration-ab.jpg)
 
-The XT16 frame adaptation rotates Go2 IMU vectors into LiDAR axes. The archived A/B changes the roll/pitch fusion weight from 0.01 to 0.15 alongside that rotation.
+The XT16 frame adaptation rotates Go2 IMU vectors from frame I into LiDAR frame L. The archived A/B changes the roll/pitch fusion weight from 0.01 to 0.15 alongside that rotation.
 
-\`\`\`math
+```math
 \mathbf{v}_{L}
 =\begin{bmatrix}
 0 & 1 & 0 \\
@@ -27,28 +27,28 @@ The XT16 frame adaptation rotates Go2 IMU vectors into LiDAR axes. The archived 
 0 & 0 & 1
 \end{bmatrix}\mathbf{v}_{I},
 \qquad \Delta z = \max_i z_i-\min_i z_i
-\`\`\`
+```
 
 ## Navigation and line-of-sight layers
 
 The planner estimates local ground from the point cloud and the nearest recorded mapping pose. Near the trajectory, a height ceiling filters canopy and overhead returns before the ground percentile is computed. Here $g_k=z_k-0.485$ m and $d_c$ is the horizontal distance from cell $c$ to that pose.
 
-\`\`\`math
+```math
 \begin{aligned}
 z_{\max}(c) &= g_k+d_c\tan(25^\circ)+0.16+0.05,\\
 \hat g_c &= Q_{0.15}\bigl(\{z_i : z_i\le z_{\max}(c),\ i\in c\}\bigr).
 \end{aligned}
-\`\`\`
+```
 
-In each 0.15 m cell, the two masks count returns in different bands above $hat g_c$. The navigation layer checks body clearance. The line-of-sight layer screens candidate viewing poses for higher obstructions.
+In each 0.15 m cell, the two masks count returns in different bands above $\hat g_c$. The navigation layer checks body clearance. The line-of-sight layer screens candidate viewing poses for higher obstructions.
 
-\`\`\`math
+```math
 \begin{aligned}
 n_c(a,b) &= \left|\{ i\in c : a<z_i-\hat g_c<b \}\right|,\\
 N(c) &= \mathbf{1}\left[n_c(0.16,0.6296)\ge 2\right],\\
 V(c) &= \mathbf{1}\left[n_c(0.90,2.20)\ge 2\right].
 \end{aligned}
-\`\`\`
+```
 
 ## Datasets
 
