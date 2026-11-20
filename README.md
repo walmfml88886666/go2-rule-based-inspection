@@ -1,6 +1,6 @@
-# Go2 Patrol: Rule-Based Inspection with LiDAR SLAM and Unitree Go2 EDU
+# Go2 Patrol: From LiDAR–Inertial Mapping to Rule-Based Quadruped Inspection
 
-Rule-based LiDAR SLAM inspection with Unitree Go2 EDU. The system plans routes with Dijkstra and links each field run to its trajectory and inspection photos.
+A supervised inspection workflow for Unitree Go2 EDU: measured LIO-SAM maps, dual-layer geometric constraints and Dijkstra routes, linked to recorded trajectories and inspection photographs.
 
 ![ROS 2 Humble field stack](https://img.shields.io/badge/Field%20stack-ROS%202%20Humble-334b80)
 ![Python 3.11 audit](https://img.shields.io/badge/Route%20audit-Python%203.11-2776aa)
@@ -9,9 +9,7 @@ Rule-based LiDAR SLAM inspection with Unitree Go2 EDU. The system plans routes w
 
 ## Overview
 
-[![System architecture from XT16 and IMU acquisition through LIO-SAM, dual-map planning, Go2 execution and inspection records](assets/inspection-architecture.png)](docs/system.md)
-
-[![Indoor and outdoor height-colored LiDAR maps with original planned routes and observation poses](assets/slam-overview.jpg)](docs/system.md)
+[![Integrated system workflow and measured indoor and outdoor maps with original routes and observation poses](assets/system-overview.png)](docs/system.md)
 
 ### Measured scenes in 3D
 
@@ -41,7 +39,7 @@ The XT16 frame adaptation rotates Go2 IMU vectors from frame I into LiDAR frame 
 
 ## Navigation and line-of-sight layers
 
-[![Cross-section of one grid cell showing the two height bands and independent two-return occupancy tests](assets/navigation-sight-layers.png)](docs/mapping.md)
+[![Side elevation of three obstacle examples and their corresponding navigation and line-of-sight cell tests](assets/navigation-sight-layers.png)](docs/mapping.md)
 
 The planner estimates local ground from the point cloud and the nearest recorded mapping pose. Near the trajectory, a height ceiling filters canopy and overhead returns before the ground percentile is computed. Here $g_k=z_k-0.485$ m and $d_c$ is the horizontal distance from cell $c$ to that pose.
 
