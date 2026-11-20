@@ -222,7 +222,7 @@ for h, tick in [
     (2.20, "2.20"),
 ]:
     y = floor - h * scale
-    label(32, y - 18, 200, 36, tick + " m", size=26, color=MUT)
+    label(32, y - (10 if h == 0 else 18), 200, 36, tick + " m", size=26, color=MUT)
     box(g, 238, y, 1315, 2, fill="#9bafab")
 box(g, 238, floor, 1315, 4, fill=FG)
 label(27, 552, 385, 40, "Estimated local ground", size=26, bold=True)
