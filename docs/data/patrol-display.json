@@ -3,39 +3,37 @@
     "point_count": 74869,
     "ground_reference_z_m": -0.5262031555175781,
     "height_span_m": 2.0,
-    "surfel_radius_range_m": [
-      0.045,
-      0.095
-    ],
-    "surfel_radius_rule": "clip(0.7 * distance_to_4th_neighbor, 0.045, 0.095)",
     "edl_weight": 0.15,
-    "pca_neighbors": 16,
+    "pca_neighbors": 12,
     "displayed_time_s": [
       2.0020000000000002,
       12.962
     ],
     "state_archive_sha256": "8e35201cafca3883fc4e76fd5845053ca9495afd8373b3194089709306c02196",
     "frames": 275,
-    "fps": 25
+    "fps": 25,
+    "display_count": 519609,
+    "point_size_px": 3.2,
+    "interpolation_max_edge_m": 0.23,
+    "interpolation_plane_tolerance_m": 0.023
   },
   "outdoor": {
-    "point_count": 112306,
+    "point_count": 152129,
     "ground_reference_z_m": -0.4937145709991455,
     "height_span_m": 2.0,
-    "surfel_radius_range_m": [
-      0.045,
-      0.095
-    ],
-    "surfel_radius_rule": "clip(0.7 * distance_to_4th_neighbor, 0.045, 0.095)",
     "edl_weight": 0.15,
-    "pca_neighbors": 16,
+    "pca_neighbors": 12,
     "displayed_time_s": [
       110.002,
       120.962
     ],
     "state_archive_sha256": "94d2027075c9a42441ac0b198312ac0ac3aadc72208a60e619d7a1bf46a208eb",
     "frames": 275,
-    "fps": 25
+    "fps": 25,
+    "display_count": 677969,
+    "point_size_px": 3.2,
+    "interpolation_max_edge_m": 0.23,
+    "interpolation_plane_tolerance_m": 0.023
   },
   "renderer": {
     "mujoco": "3.10.0",
@@ -44,11 +42,12 @@
     "Pillow": "13.0.0",
     "edl_weight": 0.15,
     "camera_offset_m": [
-      -3.15,
-      -3.6,
-      2.7
+      -3.43,
+      -3.92,
+      2.94
     ],
     "shadow": "synthetic display cue, not measured light or foot-contact evidence",
-    "physics": "No integration; mj_forward applied to archived qpos"
+    "physics": "No integration; mj_forward applied to archived qpos",
+    "camera_vertical_fov_deg": 34
   }
 }

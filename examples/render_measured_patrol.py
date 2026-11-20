@@ -169,7 +169,7 @@ def main():
             )
             d.text(
                 (35, 83),
-                "3D / Measured XYZ surfels · archived MuJoCo poses · 1× playback",
+                "3D / LiDAR scene · fine display points · archived MuJoCo poses · 1× playback",
                 font=font(25),
                 fill=WHITE,
             )
@@ -229,7 +229,7 @@ def main():
             )
             d.text(
                 (35, 1080),
-                "Mint: motion · Amber: next stop in inset · Display surfels ≠ collision geometry; archived states unchanged.",
+                "Mint: motion · Amber: next stop in inset · Fine points interpolate nearby returns · archived MuJoCo replay.",
                 font=font(24),
                 fill="#c5d5e0",
             )
@@ -255,10 +255,12 @@ def main():
                 point_count=renderer.point_count,
                 ground_reference_z_m=renderer.floor,
                 height_span_m=renderer.height_span,
-                surfel_radius_range_m=[0.045, 0.095],
-                surfel_radius_rule="clip(0.7 * distance_to_4th_neighbor, 0.045, 0.095)",
+                display_count=renderer.display_count,
+                point_size_px=3.2,
+                interpolation_max_edge_m=0.23,
+                interpolation_plane_tolerance_m=0.023,
                 edl_weight=0.15,
-                pca_neighbors=16,
+                pca_neighbors=12,
                 displayed_time_s=[float(times[keep[0]]), float(times[keep[-1]])],
             ),
             indent=2,

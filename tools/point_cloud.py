@@ -46,14 +46,24 @@ def write_xyz(path, xyz):
         xyz.astype("<f4").tofile(output)
 
 
-def height_rgb(values, limits):
-    positions = np.linspace(*limits, len(HEIGHT_COLORS))
+def height_rgb(values, limits, palette=HEIGHT_COLORS):
+    palette = np.asarray(palette)
+    positions = np.linspace(*limits, len(palette))
     return np.stack(
-        [np.interp(values, positions, channel) for channel in HEIGHT_COLORS.T], axis=-1
+        [np.interp(values, positions, channel) for channel in palette.T], axis=-1
     ).astype(np.uint8)
 
 
-def map_view(xyz, bounds, size, limits, point_radius=0):
+def map_view(
+    xyz,
+    bounds,
+    size,
+    limits,
+    point_radius=0,
+    *,
+    palette=HEIGHT_COLORS,
+    background=MAP_BACKGROUND,
+):
     """Rasterize the highest measured return at each pixel in a fixed XY view."""
     width, height = size
     lower, upper = np.asarray(bounds)
@@ -84,6 +94,6 @@ def map_view(xyz, bounds, size, limits, point_radius=0):
             ]
         ).ravel()
     occupied = np.isfinite(heights)
-    rgb = np.tile(np.array(MAP_BACKGROUND, dtype=np.uint8), (width * height, 1))
-    rgb[occupied] = height_rgb(heights[occupied], limits)
+    rgb = np.tile(np.array(background, dtype=np.uint8), (width * height, 1))
+    rgb[occupied] = height_rgb(heights[occupied], limits, palette)
     return rgb.reshape(height, width, 3), project, scale

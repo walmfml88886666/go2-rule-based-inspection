@@ -13,15 +13,12 @@ from PIL import Image, ImageDraw, ImageFont
 from tools.point_cloud import read_xyz, map_view
 
 R = Path(__file__).resolve().parents[1]
-A = R / "assets"
 D = R / "docs"
-BG = "#0b1928"
-FG = "#edf4fa"
-MUT = "#a4bbcc"
-MINT = "#54d7bc"
-AMBER = "#f5b560"
-BLUE = "#3986d7"
-ORANGE = "#ce6a21"
+BG = "#f5f7f5"
+FG = "#122827"
+MUT = "#4f6562"
+MINT = "#007c72"
+AMBER = "#b35a28"
 
 
 def master(name, w, h, bg):
@@ -43,7 +40,7 @@ def master(name, w, h, bg):
     return root, graph
 
 
-root, g = master("system-overview", 1600, 1080, BG)
+root, g = master("system-overview", 1600, 850, BG)
 n = 1
 
 
@@ -95,65 +92,41 @@ def edge(g, x1, y1, x2, y2, color=MINT, dashed=False):
     ET.SubElement(geo, "mxPoint", x=str(x2), y=str(y2), attrib={"as": "targetPoint"})
 
 
-box(
-    g,
-    30,
-    24,
-    1520,
-    62,
-    "From measured LiDAR maps to traceable Go2 inspection",
-    size=43,
-    bold=True,
-)
-box(
-    g,
-    32,
-    89,
-    1510,
-    44,
-    "A  System workflow · Operator-supervised planning and field execution",
-    size=30,
-    color=FG,
-    bold=True,
-)
-labels = [
-    ("01  SENSE", "XT16 + Go2 IMU", "LiDAR scans · inertial data"),
-    ("02  MAP", "LIO-SAM", "3D point cloud · map poses"),
-    ("03  CONSTRAIN", "Dual-layer grid", "Navigation · line of sight"),
-    ("04  PLAN", "Dijkstra GridPath", "Reachability · ordered route"),
-    ("05  EXECUTE", "Go2 EDU patrol", "Localize · walk · capture"),
+def save(name):
+    ET.indent(root)
+    ET.ElementTree(root).write(
+        D / f"{name}.drawio", encoding="utf-8", xml_declaration=True
+    )
+
+
+def label(x, y, w, h, value, *, size=28, color=FG, bold=False, fill="none"):
+    box(g, x, y, w, h, value, size=size, color=color, bold=bold, fill=fill)
+
+
+label(28, 16, 1544, 68, "From LiDAR survey to inspection route", size=54, bold=True)
+label(30, 92, 1540, 46, "", fill="#e5eeea")
+steps = [
+    ("Scan & map", "XT16 + IMU → LIO-SAM"),
+    ("Check view poses", "Clearance + line of sight"),
+    ("Plan the route", "Dijkstra grid search"),
+    ("Walk & inspect", "Go2 EDU → photos and logs"),
 ]
-for i, (cap, title, body) in enumerate(labels):
-    x = 42 + i * 307
-    box(g, x, 159, 280, 150, fill="#142e42", stroke="#35536a")
-    box(g, x + 6, 166, 268, 36, cap, size=20, color=MINT, bold=True)
-    box(g, x + 6, 205, 268, 43, title, size=29, bold=True)
-    box(g, x + 6, 253, 268, 41, body, size=20, color=MUT)
-    if i < 4:
-        edge(g, x + 281, 235, x + 304, 235)
-box(
-    g,
-    420,
-    323,
-    600,
-    46,
-    "Target labels → observation-pose checks",
-    size=22,
-    color=AMBER,
+for i, (heading, detail) in enumerate(steps):
+    x = 43 + 384 * i
+    label(x, 91, 338, 44, heading, size=31, bold=True, color=MINT)
+    label(x, 137, 355, 42, detail, size=26, color=MUT)
+    if i < 3:
+        edge(g, x + 336, 114, x + 367, 114, MINT)
+label(
+    43,
+    184,
+    1490,
+    34,
+    "Operator annotations feed the observation-pose checks.",
+    size=24,
+    color=MUT,
 )
-edge(g, 805, 324, 805, 310, AMBER, True)
-box(
-    g,
-    42,
-    382,
-    1508,
-    57,
-    "FIELD EVIDENCE:     Recorded trajectory   /   Inspection photographs   /   Timestamped events",
-    fill="#122638",
-    stroke="#35536a",
-    size=25,
-)
-edge(g, 1408, 310, 1408, 381)
+
 for i, scene in enumerate(("indoor", "outdoor")):
     cloud = read_xyz(R / "datasets" / f"{scene}.pcd")
     mission = json.loads((R / "datasets" / f"{scene}-route.json").read_text())
@@ -166,263 +139,145 @@ for i, scene in enumerate(("indoor", "outdoor")):
         route = route[:, [1, 0]] * [1, -1]
         stops = stops[:, [1, 0]] * [1, -1]
     limits = np.percentile(cloud[:, 2], [5, 95])
-    bounds = (route.min(0) - 4, route.max(0) + 4)
-    pixels, project, scale = map_view(cloud, bounds, (728, 430), limits)
+    pixels, project, scale = map_view(
+        cloud,
+        (route.min(0) - 2, route.max(0) + 2),
+        (746, 455),
+        limits,
+        palette=((189, 206, 211), (101, 131, 146), (43, 65, 86)),
+        background=(236, 242, 240),
+    )
     im = Image.fromarray(pixels)
-    dr = ImageDraw.Draw(im)
-    dr.rectangle((10, 382, 130, 429), fill=BG)
-    p = [tuple(a) for a in project(route)]
-    dr.line(p, fill=BG, width=11)
-    dr.line(p, fill=MINT, width=5)
+    draw = ImageDraw.Draw(im)
+    draw.line(list(map(tuple, project(route))), fill="#ffffff", width=10)
+    draw.line(list(map(tuple, project(route))), fill=MINT, width=5)
     for x, y in project(stops):
-        dr.ellipse((x - 5, y - 5, x + 5, y + 5), fill=AMBER, outline=BG, width=2)
-    ft = ImageFont.truetype("DejaVuSans.ttf", 19)
-    dr.line((20, 393, 20 + scale * 5, 393), fill=FG, width=3)
-    dr.text((20, 399), "5 m", font=ft, fill=FG, stroke_width=1, stroke_fill=BG)
+        draw.ellipse((x - 5, y - 5, x + 5, y + 5), fill=AMBER, outline="white", width=2)
+    draw.rectangle((10, 399, 116, 451), fill=BG)
+    draw.line((20, 410, 20 + scale * 5, 410), fill=FG, width=3)
+    draw.text((20, 415), "5 m", font=ImageFont.truetype("DejaVuSans.ttf", 25), fill=FG)
     buffer = io.BytesIO()
     im.save(buffer, format="PNG")
-    x = 42 + i * 780
-    box(
-        g,
+    data = base64.b64encode(buffer.getvalue()).decode()
+    x = 30 + i * 794
+    label(
         x,
-        467,
-        728,
-        49,
-        f'{"B" if i==0 else "C"}  {scene.capitalize()} · {len(stops)} inspection stops',
-        size=32,
+        229,
+        740,
+        58,
+        f"{scene.title()} · {len(stops)} planned stops",
+        size=39,
         bold=True,
     )
-    data = base64.b64encode(buffer.getvalue()).decode()
     box(
         g,
         x,
-        530,
-        728,
-        430,
+        294,
+        746,
+        455,
         extra=f"shape=image;imageAspect=0;image=data:image/png,{data};",
     )
-    box(g, x, 530, 728, 430, stroke="#35536a")
-    box(
-        g,
+    label(
         x,
-        967,
-        728,
-        30,
-        f"Height color: map Z, {limits[0]:.1f} to {limits[1]:.1f} m (5th–95th percentile)",
-        size=20,
-        color="#c7d7e3",
+        752,
+        746,
+        36,
+        f"Map height {limits[0]:.1f} to {limits[1]:.1f} m · light to dark",
+        size=24,
+        color=MUT,
     )
-box(g, 42, 1017, 620, 43, "2D PLAN VIEW · Height-colored LiDAR", size=25, color=FG)
-box(g, 680, 1037, 65, 4, fill=MINT)
-box(g, 750, 1017, 330, 43, "Planned route", size=25, color=FG)
-box(g, 1100, 1031, 17, 17, fill=AMBER, extra="shape=ellipse;")
-box(g, 1120, 1017, 430, 43, "Observation poses", size=25, color=FG)
-ET.indent(root)
-ET.ElementTree(root).write(
-    D / "system-overview.drawio", encoding="utf-8", xml_declaration=True
-)
-# Principle: aligned input columns and explicitly corresponding output masks.
-root, g = master("navigation-sight-principle", 1600, 1030, "#ffffff")
+
+box(g, 43, 814, 63, 5, fill=MINT)
+label(108, 796, 245, 42, "Planned route", size=26)
+box(g, 379, 805, 20, 20, fill=AMBER, extra="shape=ellipse;")
+label(405, 796, 370, 42, "Observation pose", size=26)
+save("system-overview")
+
+root, g = master("navigation-sight-principle", 1600, 814, BG)
 n = 1
-FG = "#172d46"
-MUT = "#536b80"
-box(
-    g,
-    35,
-    20,
-    1510,
-    65,
-    "One measured point cloud, two independent obstacle tests",
-    size=41,
-    bold=True,
-    color=FG,
-)
-box(
-    g,
-    37,
-    88,
-    1510,
-    46,
-    "Separate body clearance from higher occlusions before selecting routes and observation poses",
-    size=24,
+label(29, 18, 1540, 72, "Which returns block motion or sight?", size=54, bold=True)
+label(
+    32,
+    91,
+    1540,
+    45,
+    "Count returns independently in two height bands within each 0.15 m grid cell.",
+    size=31,
     color=MUT,
 )
-box(
-    g,
-    35,
-    160,
-    825,
-    49,
-    "A  SIDE ELEVATION · height above local ground",
-    size=27,
-    bold=True,
-    color=FG,
-)
-base = 760
-scale = 210
-left = 185
-right = 850
-for a, b, fill in [(0.16, 0.6296, "#e4f0fc"), (0.9, 2.2, "#fff0dd")]:
-    box(g, left, base - b * scale, right - left, (b - a) * scale, fill=fill)
-for z in [0, 0.16, 0.6296, 0.9, 2.2]:
-    y = base - z * scale
-    box(
-        g,
-        38,
-        y - 18,
-        140,
-        36,
-        f"{z:.2f} m" if z in [0.9, 2.2] else f"{z:g} m",
-        size=22,
-        color=MUT,
-        extra="align=right;",
-    )
-    box(g, left, y, right - left, 1, fill="#b8c8d6")
-box(g, left, base, right - left, 4, fill="#50677b")
-box(g, 210, 779, 630, 36, "Estimated local ground ĝc", size=23, color=FG)
-# Three schematic objects, not fabricated sensor samples. Colors mark height-band membership.
-for x, h, w in [(300, 0.4, 78), (520, 1.55, 98), (748, 2.05, 72)]:
-    if x == 520:
+floor = 535
+scale = 150
+nav = "#006b82"
+sight = "#994524"
+for lo, hi, color in (
+    (0.16, 0.6296, "#dceff3"),
+    (0.90, 2.20, "#f7e9e0"),
+):
+    label(240, floor - hi * scale, 1310, (hi - lo) * scale, "", fill=color)
+for h, tick in [
+    (0, "0"),
+    (0.16, "0.16"),
+    (0.6296, "0.6296"),
+    (0.90, "0.90"),
+    (2.20, "2.20"),
+]:
+    y = floor - h * scale
+    label(32, y - 18, 200, 36, tick + " m", size=26, color=MUT)
+    box(g, 238, y, 1315, 2, fill="#9bafab")
+box(g, 238, floor, 1315, 4, fill=FG)
+label(27, 552, 385, 40, "Estimated local ground", size=26, bold=True)
+scenarios = [
+    ("Low barrier", 490, [(0.0, 0.40)], [0.25, 0.35], (2, 0)),
+    ("Overhead obstruction", 911, [(1.24, 1.56)], [1.31, 1.47], (0, 2)),
+    ("Tall obstacle", 1322, [(0, 1.97)], [0.31, 0.53, 1.25, 1.72], (2, 2)),
+]
+for title, x, spans, returns, counts in scenarios:
+    box(g, x - 196, 143, 392, 49, title, size=30, bold=True, extra="align=center;")
+    for lo, hi in spans:
         box(
             g,
-            x - 45,
-            base - h * scale,
-            w,
-            0.2 * scale,
-            fill="#e4d2bc",
-            stroke="#997b56",
+            x - 47,
+            floor - hi * scale,
+            94,
+            (hi - lo) * scale,
+            fill="#c1cdc9",
+            stroke="#687d77",
         )
-    else:
+    for z in returns:
         box(
             g,
-            x - w / 2,
-            base - h * scale,
-            w,
-            h * scale,
-            fill="#e8edf1",
-            stroke="#8c9eac",
+            x - 8,
+            floor - z * scale - 8,
+            16,
+            16,
+            fill=nav if z < 0.63 else sight,
+            extra="shape=ellipse;",
         )
-    for z in (
-        [0.26, 0.37] if x == 300 else [1.4, 1.5] if x == 520 else [0.3, 0.46, 1.2, 1.7]
+    for j, (count, color, tint) in enumerate(
+        zip(counts, (nav, sight), ("#dceff3", "#f7e9e0"))
     ):
         box(
             g,
-            x - 7,
-            base - z * scale - 7,
-            14,
-            14,
-            fill=BLUE if z < 0.63 else ORANGE,
-            extra="ellipse;shape=ellipse;",
-        )
-    box(
-        g,
-        x - 85,
-        231,
-        170,
-        53,
-        {300: "Low barrier", 520: "High obstruction", 748: "Tall obstacle"}[x],
-        size=22,
-        color=FG,
-        bold=True,
-        extra="align=center;",
-    )
-    box(
-        g,
-        x - 25,
-        826,
-        50,
-        40,
-        {300: "①", 520: "②", 748: "③"}[x],
-        size=25,
-        color=FG,
-        bold=True,
-        extra="align=center;",
-    )
-box(
-    g,
-    220,
-    884,
-    605,
-    60,
-    "Illustrative returns · heights drawn to scale\nEach column represents one XY cell",
-    size=21,
-    color=MUT,
-)
-# Arrow into categorical cells gives direct correspondence without conflating viewing cells and rays.
-edge(g, 870, 530, 925, 530, "#8397a9")
-box(g, 940, 160, 615, 49, "B  OUTPUT · matching XY cells", size=27, color=FG, bold=True)
-for y, title, band, colors in [
-    (
-        242,
-        "NAVIGATION MASK",
-        "0.16 < relative height < 0.6296 m",
-        [BLUE, "#ffffff", BLUE],
-    ),
-    (
-        558,
-        "LINE-OF-SIGHT MASK",
-        "0.90 < relative height < 2.20 m",
-        ["#ffffff", ORANGE, ORANGE],
-    ),
-]:
-    box(
-        g,
-        940,
-        y,
-        615,
-        46,
-        title,
-        size=26,
-        color=BLUE if y == 242 else ORANGE,
-        bold=True,
-    )
-    box(g, 940, y + 49, 615, 39, band, size=23, color=FG)
-    for i, c in enumerate(colors):
-        x = 978 + i * 173
-        box(g, x, y + 104, 125, 125, fill=c, stroke="#a3b3c1", extra="align=center;")
-        box(
-            g,
-            x,
-            y + 232,
-            135,
-            37,
-            ["① Barrier", "② High", "③ Tall"][i],
-            size=20,
-            color=FG,
+            x - 181,
+            611 + 61 * j,
+            362,
+            49,
+            f"{count} returns · " + ("flagged" if count >= 2 else "below threshold"),
+            size=26,
+            bold=count >= 2,
+            color=color,
+            fill=tint,
             extra="align=center;",
         )
-    box(
-        g,
-        950,
-        y + 269,
-        600,
-        30,
-        "Filled: ≥2 returns · Unfilled: <2 returns",
-        size=21,
-        color=MUT,
-    )
-box(
-    g,
-    940,
-    886,
-    615,
-    91,
-    "① Triggers navigation only\n② Triggers line-of-sight only\n③ Triggers both masks",
-    size=23,
-    color=FG,
-)
-box(
-    g,
-    35,
-    990,
-    1515,
-    35,
-    "Grid pitch: 0.15 m · Each band is tested separately · Unfilled cells pass only that band’s return-count test",
-    size=22,
+label(27, 611, 276, 49, "Navigation", size=28, color=nav, bold=True)
+label(27, 672, 276, 49, "Line of sight", size=28, color=sight, bold=True)
+label(
+    27,
+    747,
+    1533,
+    44,
+    "Illustrative returns  ·  Strict height bounds  ·  A band flags a cell at 2 or more returns",
+    size=27,
     color=MUT,
 )
-ET.indent(root)
-ET.ElementTree(root).write(
-    D / "navigation-sight-principle.drawio", encoding="utf-8", xml_declaration=True
-)
-print("Created editable overview and principle masters")
+save("navigation-sight-principle")

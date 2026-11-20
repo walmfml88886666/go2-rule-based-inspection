@@ -1,11 +1,13 @@
 # Go2 Patrol: Rule-Based Navigation for Intelligent Quadruped Inspection
 
-A supervised inspection workflow for Unitree Go2 EDU: measured LIO-SAM maps, dual-layer geometric constraints and Dijkstra routes, linked to recorded trajectories and inspection photographs.
+Rule-based quadruped navigation and inspection on Unitree Go2 EDU. The supervised workflow uses measured LIO-SAM maps, dual-layer geometric constraints and Dijkstra routes, linked to recorded trajectories and inspection photographs.
 
 ![ROS 2 Humble field stack](https://img.shields.io/badge/Field%20stack-ROS%202%20Humble-334b80)
 ![Python 3.11 audit](https://img.shields.io/badge/Route%20audit-Python%203.11-2776aa)
 ![MuJoCo 3.10.0](https://img.shields.io/badge/Simulation-MuJoCo%203.10.0-087e72)
 [![Repository rights and attribution](https://img.shields.io/badge/License-Rights%20notice-9a6240)](LICENSE)
+
+[Overview](#overview) · [Field demos](#field-demos) · [Simulation](#slam-map-physical-simulation) · [Datasets](#datasets) · [Route audit](#run-the-route-audit)
 
 ## Overview
 

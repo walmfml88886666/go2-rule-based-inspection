@@ -26,7 +26,7 @@ class MeasuredRenderer:
         self.height_span = 2.0
         local = local[
             (local[:, 2] > self.floor - 0.3)
-            & (local[:, 2] < self.floor + (2.0 if scene == "indoor" else 3.5))
+            & (local[:, 2] < self.floor + (2.0 if scene == "indoor" else 4.5))
         ]
         points = vtk.vtkPoints()
         points.SetData(numpy_to_vtk(np.ascontiguousarray(local), deep=True))
@@ -35,45 +35,67 @@ class MeasuredRenderer:
         levels = numpy_to_vtk(np.ascontiguousarray(local[:, 2]), deep=True)
         levels.SetName("height")
         poly.GetPointData().SetScalars(levels)
+        # Add display samples only between nearby points on the same local plane.
+        normals = vtk.vtkPCANormalEstimation()
+        normals.SetInputData(poly)
+        normals.SetSampleSize(12)
+        normals.Update()
+        directions = vtk_to_numpy(normals.GetOutput().GetPointData().GetNormals())
         locator = vtk.vtkStaticPointLocator()
         locator.SetDataSet(poly)
         locator.BuildLocator()
         nearest = vtk.vtkIdList()
-        radii = np.empty(len(local), dtype=np.float32)
+        pairs = []
+        triangles = []
         for i, point in enumerate(local):
-            locator.FindClosestNPoints(5, point, nearest)
-            neighbor = local[nearest.GetId(nearest.GetNumberOfIds() - 1)]
-            radii[i] = np.clip(0.7 * np.linalg.norm(neighbor - point), 0.045, 0.095)
-        radius_array = numpy_to_vtk(radii, deep=True)
-        radius_array.SetName("display_radius")
-        poly.GetPointData().AddArray(radius_array)
-        normals = vtk.vtkPCANormalEstimation()
-        normals.SetInputData(poly)
-        normals.SetSampleSize(16)
-        normals.SetNormalOrientationToGraphTraversal()
-        normals.Update()
-        normal_poly = normals.GetOutput()
-        normal_poly.GetPointData().GetNormals().SetName("Normals")
-        disk = vtk.vtkDiskSource()
-        disk.SetOuterRadius(1.0)
-        disk.SetInnerRadius(0)
-        disk.SetCircumferentialResolution(12)
-        disk.SetRadialResolution(1)
-        transform = vtk.vtkTransform()
-        transform.RotateY(90)  # Glyph3D's direction axis is X; disks face Z.
-        transformed = vtk.vtkTransformFilter()
-        transformed.SetTransform(transform)
-        transformed.SetInputConnection(disk.GetOutputPort())
-        mapper = vtk.vtkGlyph3DMapper()
-        mapper.SetInputData(normal_poly)
-        mapper.SetSourceConnection(transformed.GetOutputPort())
-        mapper.SetScaleArray("display_radius")
-        mapper.SetScaleModeToScaleByMagnitude()
-        mapper.SetScaleFactor(1.0)
-        mapper.ScalingOn()
-        mapper.SetOrientationArray("Normals")
-        mapper.SetOrientationModeToDirection()
-        mapper.OrientOn()
+            locator.FindClosestNPoints(7, point, nearest)
+            neighbors = []
+            for k in range(nearest.GetNumberOfIds()):
+                j = nearest.GetId(k)
+                if j == i:
+                    continue
+                delta = local[j] - point
+                if (
+                    np.dot(delta, delta) <= 0.23**2
+                    and abs(np.dot(directions[i], directions[j])) >= 0.90
+                    and abs(np.dot(delta, directions[i])) <= 0.023
+                    and abs(np.dot(delta, directions[j])) <= 0.023
+                ):
+                    neighbors.append(j)
+                    if i < j:
+                        pairs.append((i, j))
+            # Fill small coplanar triangles without drawing a surface across gaps.
+            for offset, j in enumerate(neighbors):
+                if j <= i:
+                    continue
+                first_edge = local[j] - point
+                for k in neighbors[offset + 1 :]:
+                    if k <= i or np.linalg.norm(local[k] - local[j]) > 0.23:
+                        continue
+                    second_edge = local[k] - point
+                    if np.linalg.norm(np.cross(first_edge, second_edge)) >= 0.003:
+                        triangles.append((i, j, k))
+
+        first, second = np.asarray(pairs, dtype=int).reshape(-1, 2).T
+        a, b, c = np.asarray(triangles, dtype=int).reshape(-1, 3).T
+        interior = [
+            u * local[a] + v * local[b] + (1 - u - v) * local[c]
+            for u, v in ((1 / 3, 1 / 3), (0.2, 0.2), (0.6, 0.2), (0.2, 0.6))
+        ]
+        samples = np.concatenate(
+            [local]
+            + [(1 - t) * local[first] + t * local[second] for t in (0.2, 0.4, 0.6, 0.8)]
+            + interior
+        )
+        points.SetData(numpy_to_vtk(np.ascontiguousarray(samples), deep=True))
+        poly.GetPointData().SetScalars(
+            numpy_to_vtk(np.ascontiguousarray(samples[:, 2]), deep=True)
+        )
+        glyph = vtk.vtkVertexGlyphFilter()
+        glyph.SetInputData(poly)
+        mapper = vtk.vtkPolyDataMapper()
+        mapper.SetInputConnection(glyph.GetOutputPort())
+        self.display_count = len(samples)
         lookup = vtk.vtkColorTransferFunction()
         for height, color in zip(
             np.linspace(self.floor, self.floor + self.height_span, 5), PALETTE
@@ -85,10 +107,11 @@ class MeasuredRenderer:
         mapper.SetScalarRange(self.floor, self.floor + self.height_span)
         actor = vtk.vtkActor()
         actor.SetMapper(mapper)
-        actor.GetProperty().SetAmbient(0.65)
-        actor.GetProperty().SetDiffuse(0.35)
+        actor.GetProperty().SetPointSize(3.2)
+        actor.GetProperty().SetAmbient(0.82)
+        actor.GetProperty().SetDiffuse(0.18)
         self.renderer = vtk.vtkRenderer()
-        self.renderer.SetBackground(0.835, 0.862, 0.878)
+        self.renderer.SetBackground(0.085, 0.13, 0.17)
         self.renderer.AddActor(actor)
         self.window = vtk.vtkRenderWindow()
         self.window.SetOffScreenRendering(1)
@@ -191,7 +214,8 @@ class MeasuredRenderer:
         self.trace_poly.Modified()
         camera = self.renderer.GetActiveCamera()
         camera.SetFocalPoint(*(data.qpos[:3] + [0, 0, 0.1]))
-        camera.SetPosition(*(data.qpos[:3] + np.array([-0.7, -0.8, 0.6]) * 4.5))
+        camera.SetPosition(*(data.qpos[:3] + np.array([-0.7, -0.8, 0.6]) * 4.9))
+        camera.SetViewAngle(34)
         camera.SetViewUp(0, 0, 1)
         camera.SetClippingRange(0.03, 1000)
         self.renderer.SetPass(self.edl)

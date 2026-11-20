@@ -22,7 +22,7 @@ The original point positions are height-colored and viewed from oblique cameras.
 
 ## Selected scene views
 
-The overview uses a common dark canvas, numbered workflow stages and paired map panels. The principle diagram uses a side elevation and corresponding cell outputs, with heights drawn to scale. The measured scene views below use 35° oblique cameras, display-only sparse-cell filtering and per-scene height colors.
+The overview pairs a compact workflow with two light-background maps. The principle figure aligns each obstacle cross-section with its return counts for both masks. The measured scene views below use 35° oblique cameras, display-only sparse-cell filtering and per-scene height colors.
 
 ![Indoor cutaway](../assets/indoor-scene-3d.png)
 ![Outdoor scene](../assets/outdoor-scene-3d.png)
@@ -47,15 +47,13 @@ The 3D scene tours retain cells with at least two returns in a 0.18 m voxel for 
 
 The main viewport now combines the original finite XYZ measurements with the Go2 visual meshes posed from each saved MuJoCo state. A fixed oblique mission-context inset shows the same timestamp, driven trace and next observation pose. The excerpts remain indoor 2–13 s and outdoor 110–121 s, at 1×; the full recorded outcomes remain 4/22 before a contact-triggered stop and 8/8 with return.
 
-The local display uses tangent disks (surfels), centered on unchanged measured samples. PCA normals use 16 neighbors; disk radius is `clip(0.7 × fourth-neighbor distance, 0.045, 0.095)` m with 12 sides. GPU glyph rendering adds no semantic labels or phototextures. Eye-dome depth shading is blended at 15% with the base render to keep depth boundaries visible without overwhelming the height colors. The neutral floor, cyan, teal, amber and red encode height, not object category.
+The local display renders small depth-tested points on a dark background. It inserts display samples along edges and within local triangles using nearby measured returns. A candidate neighbor must be within 0.23 m, with similar surface orientation and an offset within 0.023 m of both tangent planes. PCA normals use 12 neighbors. The extra points are display interpolation and the original returns remain in the view. Indoor and outdoor previews contain approximately 520,000 and 678,000 display samples, respectively. The color ramp encodes height above the display ground reference.
 
-A fixed eighth-percentile Z of the excerpt's selected neighborhood supplies a **display ground reference**, distinct from the planner's per-cell ground estimate. The color range is 0–2 m above that reference, clipped outside the range. The indoor display retains Z between that reference minus 0.3 m and plus 2.0 m; outdoor retains through plus 3.5 m. These cutaways and footprints can obscure gaps and fine geometry; they are not a surface survey or a replacement collision model. The robot's silver display material improves contrast. A faint synthetic ellipse below the robot is a display grounding cue, not a measured shadow or evidence of foot contact. The camera is 10% closer than the first enlarged candidate, and the context inset sits at the upper left, leaving more room for the recent ground trace. The amber next-stop marker appears in the inset; the main viewport shows the robot and recent motion. Kinematics are evaluated with `mj_forward`; the renderer never calls `mj_step` or changes recorded states.
+A fixed eighth-percentile Z of the excerpt's selected neighborhood supplies a **display ground reference**, distinct from the planner's per-cell ground estimate. The color range is 0–2 m above that reference, clipped outside the range. The indoor display retains Z between that reference minus 0.3 m and plus 2.0 m; outdoor retains through plus 4.5 m. These cutaways and footprints can obscure gaps and fine geometry; they are not a surface survey or a replacement collision model. The robot's silver display material improves contrast. A faint synthetic ellipse below the robot is a display grounding cue, not a measured shadow or evidence of foot contact. The chase camera uses a 34° vertical field of view and sits farther back to show more of the surrounding scan. The context inset sits at the upper left. The amber next-stop marker appears in the inset; the main viewport shows the robot and recent motion. Kinematics are evaluated with `mj_forward`; the renderer never calls `mj_step` or changes recorded states.
 
-During selection, original-point spheres, several Gaussian-density scales, tangent disks, and Hoppe surface reconstruction were compared at multiple camera angles. Large density footprints exaggerated walls and ground; implicit reconstruction added unsupported surfaces. Tangent disks retained the scan positions and made nearby geometry easier to read. The local presets below use the same archived midpoint poses with different display footprints, cameras and clipping; this is a visual selection, not a controlled algorithm benchmark.
+Earlier presets included original-point spheres, Gaussian-density surfaces, tangent disks and implicit reconstruction. The examples below show how the small-point display reveals more of the scan footprint and reduces the prominence of individual disks.
 
-![Local rendering presets](../assets/patrol-render-presets.jpg) The archived collision model remains authoritative for the recorded physical simulation.
-
-![Previous and enlarged display at the same recorded timestamps](../assets/patrol-display-comparison.jpg)
+![Tangent disks and fine points at matched simulated timestamps](../assets/patrol-display-comparison.jpg)
 
 ## Figure layout references
 

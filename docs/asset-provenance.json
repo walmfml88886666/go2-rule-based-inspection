@@ -147,9 +147,9 @@
   },
   {
     "file": "assets/slam-indoor.jpg",
-    "sha256": "4bc9340b335e8ad5b507c5b666638654d782ac8a98db372d17bda638fca8de6e",
+    "sha256": "d2aa37007f86bb5654b52b7b86b7dde7a690884be37e9b311d6dbef7e1482fa3",
     "source": "Original measured localization clouds and unchanged archived MuJoCo state sequences; docs/data/patrol-display.json",
-    "treatment": "Visualization only: adaptive tangent surfels, display height colors, posed Go2 mesh and mission inset; methods and preset comparisons in docs/visual-comparison.md."
+    "treatment": "Fine display points interpolated locally between measured returns. Height coloring and a wider chase view show the archived Go2 poses."
   },
   {
     "file": "assets/slam-indoor.mp4",
@@ -171,9 +171,9 @@
   },
   {
     "file": "assets/slam-outdoor.jpg",
-    "sha256": "ac5c654007fb48f62a0e01989e0de3d58c13582853ae09da29d42bc815aa1483",
+    "sha256": "7460d01fd0bce4eeb9c87f18b8cb263a4f562b27344710dc6ffc84c83fb663e7",
     "source": "Original measured localization clouds and unchanged archived MuJoCo state sequences; docs/data/patrol-display.json",
-    "treatment": "Visualization only: adaptive tangent surfels, display height colors, posed Go2 mesh and mission inset; methods and preset comparisons in docs/visual-comparison.md."
+    "treatment": "Fine display points interpolated locally between measured returns. Height coloring and a wider chase view show the archived Go2 poses."
   },
   {
     "file": "assets/slam-outdoor.mp4",
@@ -259,27 +259,27 @@
   },
   {
     "file": "assets/slam-indoor-route.mp4",
-    "sha256": "091c04334982ef994d0d1db11b73642290e239079172e66d3825cc3c0efbd569",
+    "sha256": "b913a0f17ae30481f23ebbec75f6915ec98c5d6980b94709953e9c17726a1da1",
     "source": "Original measured localization clouds and unchanged archived MuJoCo state sequences; docs/data/patrol-display.json",
-    "treatment": "Visualization only: adaptive tangent surfels, display height colors, posed Go2 mesh and mission inset; methods and preset comparisons in docs/visual-comparison.md."
+    "treatment": "Fine display points interpolated locally between measured returns. Height coloring and a wider chase view show the archived Go2 poses."
   },
   {
     "file": "assets/slam-indoor-route.webp",
-    "sha256": "7477a3b6f418dce69afcb384bcc7d77aa3ea4fc279b8ce154e22beb2d5802ff0",
+    "sha256": "a2f35cf85f0e5358130a799c5c62ef133b19a31c8cafd521fd00f5695b1f08a8",
     "source": "Original measured localization clouds and unchanged archived MuJoCo state sequences; docs/data/patrol-display.json",
-    "treatment": "Visualization only: adaptive tangent surfels, display height colors, posed Go2 mesh and mission inset; methods and preset comparisons in docs/visual-comparison.md."
+    "treatment": "Fine display points interpolated locally between measured returns. Height coloring and a wider chase view show the archived Go2 poses."
   },
   {
     "file": "assets/slam-outdoor-route.mp4",
-    "sha256": "7277507a7be366559855bfd51b02b3eb63bade14ffb22ad13e171688ae2d4d14",
+    "sha256": "9bd706649ef6bd9c0c7f70e7cfb14205974062df609ab98c71782c8b7da8192b",
     "source": "Original measured localization clouds and unchanged archived MuJoCo state sequences; docs/data/patrol-display.json",
-    "treatment": "Visualization only: adaptive tangent surfels, display height colors, posed Go2 mesh and mission inset; methods and preset comparisons in docs/visual-comparison.md."
+    "treatment": "Fine display points interpolated locally between measured returns. Height coloring and a wider chase view show the archived Go2 poses."
   },
   {
     "file": "assets/slam-outdoor-route.webp",
-    "sha256": "2879e6142de4e02c587c6a9c9ce756263e6d296b804bbfaeb1f875af701179ed",
+    "sha256": "a3282cb924d8fe040f1bf0b420d79efed75ccd6e71cf9a0e2ff4a105b8009a17",
     "source": "Original measured localization clouds and unchanged archived MuJoCo state sequences; docs/data/patrol-display.json",
-    "treatment": "Visualization only: adaptive tangent surfels, display height colors, posed Go2 mesh and mission inset; methods and preset comparisons in docs/visual-comparison.md."
+    "treatment": "Fine display points interpolated locally between measured returns. Height coloring and a wider chase view show the archived Go2 poses."
   },
   {
     "file": "assets/inspection-architecture.svg",
@@ -289,9 +289,9 @@
   },
   {
     "file": "assets/navigation-sight-layers.svg",
-    "sha256": "ddd126264fab51804a1de9aa2ca59782c30436417af96c83e13ede1d723824cc",
+    "sha256": "375a7b7478fb895bc95cbf3e0394d832a811e2c18bbde0867a28f292bf54fbcd",
     "source": "Original planner height bands and independent two-return tests",
-    "treatment": "Schematic side elevation and aligned square cell outputs; illustrative returns, not measured obstacle samples."
+    "treatment": "Height cross-section aligned with per-cell return counts for the two masks."
   },
   {
     "file": "assets/inspection-architecture.png",
@@ -301,9 +301,9 @@
   },
   {
     "file": "assets/navigation-sight-layers.png",
-    "sha256": "68e7af9cc32ef23e96971fa6413f34130e773e4a62348bd7e2862591ba7277ef",
+    "sha256": "bb380e4c1aa13587d3f9150464460a8f9f7514754243c609728541958ab89592",
     "source": "Original planner height bands and independent two-return tests",
-    "treatment": "Schematic side elevation and aligned square cell outputs; illustrative returns, not measured obstacle samples."
+    "treatment": "Height cross-section aligned with per-cell return counts for the two masks."
   },
   {
     "file": "assets/indoor-scene-3d.png",
@@ -355,21 +355,21 @@
   },
   {
     "file": "assets/system-overview.png",
-    "sha256": "d2b51231b4c4dfdcf9348353d9e0bdcd5ac328f4b993655614087c3a278c37ca",
+    "sha256": "3eadb14270148734c45e88564cf0408884199650348b4fe834bfa665a0d2f62a",
     "source": "Published metric LiDAR datasets and original route JSON; existing supervised project workflow",
-    "treatment": "Integrated draw.io workflow, original 2D maps, route and observation poses; editable master and exported image."
+    "treatment": "Editable light-background workflow with measured plan views, planned routes and observation poses."
   },
   {
     "file": "assets/system-overview.svg",
-    "sha256": "1fadc6461a963a423bb3349f2ed899eee5f5498a67df817f437a0b56b7c07a9a",
+    "sha256": "666069f4636dd336f5875e9b8f04f4a001dd9c9a7ad558cc1437b7790375e1bd",
     "source": "Published metric LiDAR datasets and original route JSON; existing supervised project workflow",
-    "treatment": "Integrated draw.io workflow, original 2D maps, route and observation poses; editable master and exported image."
+    "treatment": "Editable light-background workflow with measured plan views, planned routes and observation poses."
   },
   {
     "file": "assets/patrol-display-comparison.jpg",
-    "sha256": "850ee0261c5c0bb9b1fa5068da03e2ea5ed205e80973c12e54061d67add8bf64",
+    "sha256": "d11f8bd1aeab1a0f0bb689c7ce44842a7b9645b21722a69af3a5ebb03f400ae1",
     "source": "Original measured localization clouds and unchanged archived MuJoCo state sequences; docs/data/patrol-display.json",
-    "treatment": "Visualization only: adaptive tangent surfels, display height colors, posed Go2 mesh and mission inset; methods and preset comparisons in docs/visual-comparison.md."
+    "treatment": "Fine display points interpolated locally between measured returns. Height coloring and a wider chase view show the archived Go2 poses."
   },
   {
     "file": "assets/patrol-render-presets.jpg",
@@ -379,14 +379,14 @@
   },
   {
     "file": "docs/system-overview.drawio",
-    "sha256": "d254d8e0e9f5d6c6c55b58b9cb3d6e247b26ba9857bf964c9d5ac01dad410eea",
+    "sha256": "7fdd753279e1cb0aece391ff3de0e2d4814b0a76293a0b18429f0a197964cca1",
     "source": "Published metric LiDAR datasets and original route JSON; existing supervised project workflow",
-    "treatment": "Integrated draw.io workflow, original 2D maps, route and observation poses; editable master and exported image."
+    "treatment": "Editable light-background workflow with measured plan views, planned routes and observation poses."
   },
   {
     "file": "docs/navigation-sight-principle.drawio",
-    "sha256": "1bad1d116d2a48865301ddb79e77fe46bce06eba69e4f7c5305b64061edbec3f",
+    "sha256": "a6ed189ac339ceacb6e7ca6431e4401ac39b8a24842413704eb43f6d9e28cd5b",
     "source": "Original planner height bands and independent two-return tests",
-    "treatment": "Schematic side elevation and aligned square cell outputs; illustrative returns, not measured obstacle samples."
+    "treatment": "Height cross-section aligned with per-cell return counts for the two masks."
   }
 ]
