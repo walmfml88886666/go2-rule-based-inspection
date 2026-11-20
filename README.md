@@ -44,9 +44,9 @@ In each 0.15 m cell, the two masks count returns in different bands above $\hat 
 
 ```math
 \begin{aligned}
-n_c(a,b) &= \left|\{ i\in c : a<z_i-\hat g_c<b \}\right|,\\
-N(c) &= \mathbf{1}\left[n_c(0.16,0.6296)\ge 2\right],\\
-V(c) &= \mathbf{1}\left[n_c(0.90,2.20)\ge 2\right].
+n_c(a,b) &= \sum_{i\in c}\mathbf{1}(a<z_i-\hat g_c<b),\\
+N(c) &= \mathbf{1}(n_c(0.16,0.6296)\ge 2),\\
+V(c) &= \mathbf{1}(n_c(0.90,2.20)\ge 2).
 \end{aligned}
 ```
 
