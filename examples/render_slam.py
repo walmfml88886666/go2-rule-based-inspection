@@ -258,12 +258,12 @@ def main():
         )
         text(1115, 516, "Amber: planned   Teal: simulated", 15, MUTED)
         draw.rounded_rectangle((1099, 548, 1562, 841), 12, fill="#142b38")
-        text(1115, 559, "Camera render · scan geometry", 19, WHITE, True)
+        text(1115, 559, "Virtual camera · no RGB", 19, WHITE, True)
         image.paste(Image.fromarray(lens.render()), (1115, 592))
         text(
             38,
             854,
-            f"{t:07.2f} s SIM TIME   /   Selected excerpts at 1x   /   Translucent SLAM voxel surface",
+            f"{t:07.2f} s SIM TIME   /   Selected excerpts at 1x   /   Scan geometry · no measured camera extrinsics",
             17,
             MUTED,
         )

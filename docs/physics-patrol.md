@@ -2,7 +2,7 @@
 
 The indoor and outdoor scenes come from the project's archived LiDAR mapping and inspection work. Each run uses the archived terrain surface, obstacle primitives, waypoint sequence and observation poses. The planning output is the original project route, whose graph-search stage uses Dijkstra. This experiment tests physical execution of that stored output.
 
-[Indoor video](../assets/slam-indoor.mp4?raw=1) · [Outdoor video](../assets/slam-outdoor.mp4?raw=1) · [Aggregate run evidence](data/slam-physics-results.json)
+[Download indoor MP4](../assets/slam-indoor.mp4?raw=1) · [Download outdoor MP4](../assets/slam-outdoor.mp4?raw=1) · [Aggregate run evidence](data/slam-physics-results.json)
 
 ## Source data
 

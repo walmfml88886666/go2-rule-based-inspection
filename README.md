@@ -44,7 +44,7 @@ The Go2 follows the original inspection route in environments derived from the p
 
 [![Go2 following the recorded indoor map and inspection route](assets/slam-indoor.webp)](assets/slam-indoor.mp4?raw=1)
 
-[Indoor video](assets/slam-indoor.mp4?raw=1) · [Outdoor video](assets/slam-outdoor.mp4?raw=1) · [Input provenance, outcomes and capture errors](docs/physics-patrol.md)
+[Download indoor MP4](assets/slam-indoor.mp4?raw=1) · [Download outdoor MP4](assets/slam-outdoor.mp4?raw=1) · [Input provenance, outcomes and capture errors](docs/physics-patrol.md)
 
 | Recorded map | Inspection poses reached | Return | Simulated time / travel | Ending |
 | --- | ---: | --- | --- | --- |
