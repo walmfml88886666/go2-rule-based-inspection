@@ -22,3 +22,10 @@ The first-person clips come from separate field runs. The point-cloud figures pr
 The camera clips are silent and have no added motion or speed effects. Preview loops use the first few seconds of each clip. Map colors distinguish the planned route, marked targets, and the start/return position. For identity and integrity checks, see [asset provenance](asset-provenance.json). The [planning demonstrations](simulation.md) use synthetic layouts.
 
 [Back to the README](../README.md)
+
+
+## Third-person field footage
+
+The README pairs two independent excerpts from the acceptance archive under FYX. The indoor excerpt starts 2 s into the target-approach recording. The outdoor excerpt starts 6 s into the daylight gravel-and-slope recording. Both are nine seconds at recorded speed with audio removed. The recorded mission replay covers the full timeline through 22 logged captures, displaying eight selected photos.
+
+[Indoor target approach](../assets/field-exterior-indoor.mp4?raw=1) · [Outdoor gravel and slope](../assets/field-exterior-outdoor.mp4?raw=1)

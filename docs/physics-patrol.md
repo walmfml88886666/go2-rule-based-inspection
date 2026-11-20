@@ -28,6 +28,12 @@ The angular input is taken from the floating joint in chassis axes. A regression
 
 At each original observation pose, a capture request requires 0.60 s of consecutive stable samples with planar speed below 0.01 m/s, yaw rate below 0.06 rad/s and heading error within 5°. The follower uses the original stop order and keeps the task's three-second photo dwell. Any obstacle contact or non-foot floor contact stops the run. These are explicit simulation checks.
 
+## Walking previews
+
+The README previews show continuous 11-second excerpts at 1× from the recorded physics state arrays: indoor at 1.5–12.5 s and outdoor at 110–121 s. Use the same arguments with `python -m examples.render_showcase` for the close follow view. The result panel shows the outcome of the full recorded mission.
+
+[Indoor walking excerpt](../assets/slam-indoor-walk.mp4?raw=1) · [Outdoor walking excerpt](../assets/slam-outdoor-walk.mp4?raw=1)
+
 ## Recorded outcomes
 
 | Scene | Inspection poses reached | Return | Simulated duration | Travel | Maximum body tilt | Obstacle contact samples | Non-foot floor contact samples |
