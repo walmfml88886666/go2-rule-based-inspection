@@ -202,7 +202,7 @@
   },
   {
     "file": "assets/field-exterior-indoor.webp",
-    "sha256": "85fa5a30bcfcaaeb4667fc88934cd1d388831cc5d988767ede01bdffec52f513",
+    "sha256": "f5e84513a2203324ce2ad49426324700b3498f6f7f6d2c5975b049a56bc43866",
     "source": "FYX acceptance archive, indoor third-person field footage",
     "source_sha256": "f528c3d93e01a6884ee0517e3eede4b113f459bb7558eeb82bb7651ebcd68c34",
     "treatment": "Nine-second excerpt at recorded speed without audio."
@@ -215,7 +215,7 @@
   },
   {
     "file": "assets/field-exterior-outdoor.mp4",
-    "sha256": "b10f580b337e26b373c87002394cf4e30a02dd166b4c324c097e3ea9af4b7475",
+    "sha256": "10617212533cb55cca730ebc973a35c11b6882e66aca2d13f1d9311cb6e0b409",
     "source": "FYX acceptance archive, outdoor third-person field footage",
     "source_sha256": "47eb0260e609be083b0b64d04d91da203ecbed9be1aa1f3218a06195db9f458d",
     "treatment": "Nine-second excerpt at recorded speed without audio."
@@ -228,7 +228,7 @@
   },
   {
     "file": "assets/field-exterior-outdoor.webp",
-    "sha256": "8a25a3109b704f253e3689d8f7adad03253898afbc2957cb5b8689cb608b4ed2",
+    "sha256": "a8a8cc6ba0d575d92029fd1e0c4139428828fc54653b0f8e616b75d8e6d9b335",
     "source": "FYX acceptance archive, outdoor third-person field footage",
     "source_sha256": "47eb0260e609be083b0b64d04d91da203ecbed9be1aa1f3218a06195db9f458d",
     "treatment": "Nine-second excerpt at recorded speed without audio."

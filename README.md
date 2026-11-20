@@ -4,7 +4,7 @@ Rule-based LiDAR SLAM inspection with Unitree Go2 EDU. The system plans routes w
 
 ## Field demos
 
-| Indoor inspection | Outdoor gravel and slope |
+| Indoor inspection | Outdoor gravel crossing |
 | :---: | :---: |
 | [![Go2 walking to an indoor inspection target](assets/field-exterior-indoor.webp)](assets/field-exterior-indoor.mp4?raw=1) | [![Go2 walking from pavement onto gravel](assets/field-exterior-outdoor.webp)](assets/field-exterior-outdoor.mp4?raw=1) |
 
