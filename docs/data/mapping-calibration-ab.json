@@ -1,0 +1,24 @@
+[
+  {
+    "keyframes": 1162,
+    "z_min_m": -1.3332180976867676,
+    "z_max_m": 4.632670879364014,
+    "z_span_m": 5.965888977050781,
+    "surface_points": 372539,
+    "source_hashes": {
+      "cloudSurface.pcd": "fadbd04008d884bc4b2e7fb539b1e204f45bcd5770cb50eb9f9bf0a7c4b6a8d7",
+      "trajectory.pcd": "362c3c7f1839e61f7e35689e7b63e59bab6b201eb8b3903fd75c3da06826d1de"
+    }
+  },
+  {
+    "keyframes": 1145,
+    "z_min_m": -0.8478506207466125,
+    "z_max_m": 0.043524231761693954,
+    "z_span_m": 0.8913748264312744,
+    "surface_points": 351423,
+    "source_hashes": {
+      "cloudSurface.pcd": "b1ee29caf3c54b51262f320591a8ca9405bae51d690d33cb074e35411562f876",
+      "trajectory.pcd": "9130828ee8f8375a9431c4c0e727d50751a94303545d316716edc3d0df2c6fc8"
+    }
+  }
+]

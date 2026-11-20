@@ -1,0 +1,15 @@
+Go2 Patrol — Rights and attribution
+
+The repository contains project code, documentation, field recordings,
+derived datasets, and simulation media. Copyright and other rights in
+each item remain with their respective rights holders.
+
+This notice does not grant a general license to modify or redistribute
+repository materials. The indoor and outdoor geometry datasets can be
+downloaded from datasets/ for inspection and evaluation under GitHub's
+applicable terms. Seek permission from the relevant rights holder for
+reuse beyond those terms and applicable law.
+
+Third-party projects, dependencies, models, and policies remain subject
+to their upstream licenses. See docs/physics-patrol.md and
+docs/asset-provenance.json for sources.

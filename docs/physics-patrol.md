@@ -18,7 +18,7 @@ The local source is the 2026-10-30 three-profile comparison archive and its froz
 
 The collision scene is the archive's occupancy-0.50 sensitivity model. It carries the map residuals and geometric approximations of that model. Every source terrain and obstacle position and box dimension is checked when the model is compiled. The view uses translucent voxels for visibility. The right-hand map panel uses the archived point-cloud appearance data and plots the actual simulated trace beside the stored plan.
 
-The aggregate record contains source checksums and diagnostics. Original point clouds, task bundles and state arrays remain with the project archive. Public readers can verify media against `docs/asset-provenance.json` and `examples/go2_controller.py` against `publication_check.published_controller_sha256`. The recorded `controller_sha256` identifies the executed, earlier-formatted adapter; its syntax tree was checked against the published adapter. Checking the twelve source files and full state archives requires access to the original project data; published hashes alone do not provide independent reproduction.
+The aggregate record contains source checksums and diagnostics. The original task bundles and state arrays remain with the project archive. The [dataset exports](../datasets/) contain both point clouds and planned routes translated to local mission origins. Public readers can verify media against `docs/asset-provenance.json` and `examples/go2_controller.py` against `publication_check.published_controller_sha256`. The recorded `controller_sha256` identifies the executed, earlier-formatted adapter; its syntax tree was checked against the published adapter. Checking the twelve source files and full state archives requires access to the original project data; published hashes alone do not provide independent reproduction.
 
 ## Motion and capture protocol
 
@@ -28,11 +28,11 @@ The angular input is taken from the floating joint in chassis axes. A regression
 
 At each original observation pose, a capture request requires 0.60 s of consecutive stable samples with planar speed below 0.01 m/s, yaw rate below 0.06 rad/s and heading error within 5°. The follower uses the original stop order and keeps the task's three-second photo dwell. Any obstacle contact or non-foot floor contact stops the run. These are explicit simulation checks.
 
-## Walking previews
+## Route previews
 
-The README previews show continuous 11-second excerpts at 1× from the recorded physics state arrays: indoor at 1.5–12.5 s and outdoor at 110–121 s. Use the same arguments with `python -m examples.render_showcase` for the close follow view. The result panel shows the outcome of the full recorded mission.
+The README previews use continuous 11-second excerpts at 1× from the recorded physics state arrays: indoor at 2–13 s and outdoor at 110–121 s. Use the same arguments with `python -m examples.render_showcase` to render these views. The fixed map uses all finite returns from the source localization cloud. Each visible point footprint is rendered up to three pixels wide for readability. Colors encode map Z at the highest displayed return. The overlay shows the actual simulated trace and heading, the planned waypoint leg, and the next observation pose. The result panel summarizes the full recorded mission.
 
-[Indoor walking excerpt](../assets/slam-indoor-walk.mp4?raw=1) · [Outdoor walking excerpt](../assets/slam-outdoor-walk.mp4?raw=1)
+[Indoor route excerpt](../assets/slam-indoor-route.mp4?raw=1) · [Outdoor route excerpt](../assets/slam-outdoor-route.mp4?raw=1)
 
 ## Recorded outcomes
 

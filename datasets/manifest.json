@@ -1,0 +1,24 @@
+[
+  {
+    "scene": "indoor",
+    "points": 246739,
+    "inspection_stops": 22,
+    "input_cloud_sha256": "da9f3cc6bfd65915592327aaf3792b404bd99977796b1e7a2a453bb2b171d0c3",
+    "input_plan_sha256": "6505ab3e15e07f5687b48558f3a15805cfe705bb13b044d3aa00d490dfaacddc",
+    "files": {
+      "indoor.pcd": "fb9f214ac32dc88b90a6e0b2de454737391628bdefe2fca4f99772c5a72320ae",
+      "indoor-route.json": "f478d96e30ee5f7d68b2dbdd023adb15e9a9f0397421af63af15c3c5702b55af"
+    }
+  },
+  {
+    "scene": "outdoor",
+    "points": 1385388,
+    "inspection_stops": 8,
+    "input_cloud_sha256": "510e23599f36153d1e56cb01fa251d0e3c4792877b248f31d7a5d4d260466158",
+    "input_plan_sha256": "4da5f60954a4495459b0e632705f8cd3dc8803966b927dc691b78ba259bd99da",
+    "files": {
+      "outdoor.pcd": "0350e4f4245eaef7e4adc4231a3829d5d520583749895f009efbc5f06684bf72",
+      "outdoor-route.json": "624560c981294d3e7df679f903130fb71c070271ecb12abfd87f76f9f06c64a3"
+    }
+  }
+]

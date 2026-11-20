@@ -244,5 +244,41 @@
     "sha256": "fcb756e69c97542e1ee6326113f9fa77685f50b35030352672fe1159ddee1489",
     "source": "Archived indoor mission, with matching LiDAR point cloud, measured trajectory and photo events",
     "treatment": "Full 24-second replay of 22 logged captures with eight selected photos."
+  },
+  {
+    "file": "assets/slam-overview.jpg",
+    "sha256": "45b90422e50c40941332b6946692e42f5ae012ba4c976454c5b1978106a3b4a1",
+    "source": "Original indoor and outdoor localization maps and task plans",
+    "treatment": "Height-colored map overview with original planned routes and observation poses."
+  },
+  {
+    "file": "assets/mapping-calibration-ab.jpg",
+    "sha256": "fc76ac29710426054d02f7bdcd8515ac2b8954452828c00031aec28bdbf9bafa",
+    "source": "Matched archived indoor LIO-SAM configuration comparison; docs/data/mapping-calibration-ab.json",
+    "treatment": "Matched side projections of measured surfaces and estimated trajectories at the same scales."
+  },
+  {
+    "file": "assets/slam-indoor-route.mp4",
+    "sha256": "becb53fcfafcfb200750bda48b1e86e3ccb503cf655d751f347227bb88515673",
+    "source": "Indoor localization cloud and existing MuJoCo state archive",
+    "treatment": "Fixed height-colored viewport showing the simulated heading and trace, stored next observation pose, and simultaneous dynamics close-up."
+  },
+  {
+    "file": "assets/slam-indoor-route.webp",
+    "sha256": "3faf4a49f09e9d2d21cb8e59b7f973dc59d1de76cee2ee53e6021e99c1aef26c",
+    "source": "Indoor localization cloud and existing MuJoCo state archive",
+    "treatment": "Fixed height-colored viewport showing the simulated heading and trace, stored next observation pose, and simultaneous dynamics close-up."
+  },
+  {
+    "file": "assets/slam-outdoor-route.mp4",
+    "sha256": "3d3c87d020bcbee91c329262fee26ae62f9c44385efeac629ca12ef2a8d38c0a",
+    "source": "Outdoor localization cloud and existing MuJoCo state archive",
+    "treatment": "Fixed height-colored viewport showing the simulated heading and trace, stored next observation pose, and simultaneous dynamics close-up."
+  },
+  {
+    "file": "assets/slam-outdoor-route.webp",
+    "sha256": "04bb6213d7a75ce9ab8895265a2fa7e233230876dc23a02d255f4bdc355d1fcf",
+    "source": "Outdoor localization cloud and existing MuJoCo state archive",
+    "treatment": "Fixed height-colored viewport showing the simulated heading and trace, stored next observation pose, and simultaneous dynamics close-up."
   }
 ]
