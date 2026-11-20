@@ -147,7 +147,7 @@
   },
   {
     "file": "assets/slam-indoor.jpg",
-    "sha256": "cc6235bffe8ef88469cb1d8f34f8a8a9d1502dd6d3506cca9ffea40a93013cd0",
+    "sha256": "4bc9340b335e8ad5b507c5b666638654d782ac8a98db372d17bda638fca8de6e",
     "source": "Original measured localization clouds and unchanged archived MuJoCo state sequences; docs/data/patrol-display.json",
     "treatment": "Visualization only: adaptive tangent surfels, display height colors, posed Go2 mesh and mission inset; methods and preset comparisons in docs/visual-comparison.md."
   },
@@ -171,7 +171,7 @@
   },
   {
     "file": "assets/slam-outdoor.jpg",
-    "sha256": "05d63cee10464c5029fa35ac61cbe3e3ae75f5927f8ee3f2f43a93ce4ca089f6",
+    "sha256": "ac5c654007fb48f62a0e01989e0de3d58c13582853ae09da29d42bc815aa1483",
     "source": "Original measured localization clouds and unchanged archived MuJoCo state sequences; docs/data/patrol-display.json",
     "treatment": "Visualization only: adaptive tangent surfels, display height colors, posed Go2 mesh and mission inset; methods and preset comparisons in docs/visual-comparison.md."
   },
@@ -259,25 +259,25 @@
   },
   {
     "file": "assets/slam-indoor-route.mp4",
-    "sha256": "67f8a99d1e9a064db35cedd1d8ac3c2e64dba67a8b730769323d83e428ec3e93",
+    "sha256": "091c04334982ef994d0d1db11b73642290e239079172e66d3825cc3c0efbd569",
     "source": "Original measured localization clouds and unchanged archived MuJoCo state sequences; docs/data/patrol-display.json",
     "treatment": "Visualization only: adaptive tangent surfels, display height colors, posed Go2 mesh and mission inset; methods and preset comparisons in docs/visual-comparison.md."
   },
   {
     "file": "assets/slam-indoor-route.webp",
-    "sha256": "de12d5599b8c5b94a6800f67ba1e74d545b75f8fd1b9c3e0fa08fc644a424aee",
+    "sha256": "7477a3b6f418dce69afcb384bcc7d77aa3ea4fc279b8ce154e22beb2d5802ff0",
     "source": "Original measured localization clouds and unchanged archived MuJoCo state sequences; docs/data/patrol-display.json",
     "treatment": "Visualization only: adaptive tangent surfels, display height colors, posed Go2 mesh and mission inset; methods and preset comparisons in docs/visual-comparison.md."
   },
   {
     "file": "assets/slam-outdoor-route.mp4",
-    "sha256": "9865266d3f13a514f75ec43ad20101a1a4a3f21328225e32006b6ae7b117035c",
+    "sha256": "7277507a7be366559855bfd51b02b3eb63bade14ffb22ad13e171688ae2d4d14",
     "source": "Original measured localization clouds and unchanged archived MuJoCo state sequences; docs/data/patrol-display.json",
     "treatment": "Visualization only: adaptive tangent surfels, display height colors, posed Go2 mesh and mission inset; methods and preset comparisons in docs/visual-comparison.md."
   },
   {
     "file": "assets/slam-outdoor-route.webp",
-    "sha256": "c0b4c40042f3f1e7b263a887939e1ccaf82fa5f8d2b8474f980e4014514ce8e2",
+    "sha256": "2879e6142de4e02c587c6a9c9ce756263e6d296b804bbfaeb1f875af701179ed",
     "source": "Original measured localization clouds and unchanged archived MuJoCo state sequences; docs/data/patrol-display.json",
     "treatment": "Visualization only: adaptive tangent surfels, display height colors, posed Go2 mesh and mission inset; methods and preset comparisons in docs/visual-comparison.md."
   },
@@ -367,13 +367,13 @@
   },
   {
     "file": "assets/patrol-display-comparison.jpg",
-    "sha256": "d16b2bb09506d0a416eca0ff0f648b99e8a9785f0b963bb69af9141ec8458f4f",
+    "sha256": "850ee0261c5c0bb9b1fa5068da03e2ea5ed205e80973c12e54061d67add8bf64",
     "source": "Original measured localization clouds and unchanged archived MuJoCo state sequences; docs/data/patrol-display.json",
     "treatment": "Visualization only: adaptive tangent surfels, display height colors, posed Go2 mesh and mission inset; methods and preset comparisons in docs/visual-comparison.md."
   },
   {
     "file": "assets/patrol-render-presets.jpg",
-    "sha256": "e5ecef5ec0e134f12224c75a1d2e7865ae04fe2d2433494c97a9100125552b68",
+    "sha256": "4cf1b051ae0cb5595f45dedc99482fcbe5c0877ea2a733c2411b731f7db6b725",
     "source": "Original measured localization clouds and unchanged archived MuJoCo state sequences; docs/data/patrol-display.json",
     "treatment": "Visualization only: adaptive tangent surfels, display height colors, posed Go2 mesh and mission inset; methods and preset comparisons in docs/visual-comparison.md."
   },

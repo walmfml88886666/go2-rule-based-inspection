@@ -183,19 +183,14 @@ def main():
             inset = context.render(
                 route, np.vstack([qpos[: i + 1 : 5, :2], qpos[i, :2]]), goal, heading
             )
-            d.rectangle((51, 650, 411, 990), fill=BG, outline="#50718a", width=2)
-            d.text((61, 660), "3D / Mission context", font=font(25, True), fill=WHITE)
-            image.paste(inset.resize((340, 279), Image.Resampling.LANCZOS), (61, 702))
+            d.rectangle((51, 155, 411, 495), fill=BG, outline="#50718a", width=2)
+            d.text((61, 165), "3D / Mission context", font=font(25, True), fill=WHITE)
+            image.paste(inset.resize((340, 279), Image.Resampling.LANCZOS), (61, 207))
             d = ImageDraw.Draw(image)
-            d.rounded_rectangle((441, 948, 1070, 992), radius=7, fill=BG)
-            d.text(
-                (455, 955),
-                "Mint: recent motion · Amber: next stop",
-                font=font(24),
-                fill=WHITE,
-            )
             d.rounded_rectangle((1290, 884, 1747, 982), radius=10, fill=BG)
-            d.text((1306, 893), "Height above reference (m)", font=font(26), fill=WHITE)
+            d.text(
+                (1306, 893), "Height above ground ref (m)", font=font(26), fill=WHITE
+            )
             for k in range(320):
                 position = k / 319 * 4
                 j = min(3, int(position))
@@ -234,8 +229,8 @@ def main():
             )
             d.text(
                 (35, 1080),
-                "Display surfels are not collision geometry. Original state sequence and outcomes are unchanged.",
-                font=font(25),
+                "Mint: motion · Amber: next stop in inset · Display surfels ≠ collision geometry; archived states unchanged.",
+                font=font(24),
                 fill="#c5d5e0",
             )
             if args.preview or i == keep[len(keep) // 2]:
