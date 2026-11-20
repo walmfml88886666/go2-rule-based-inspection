@@ -34,4 +34,6 @@ The [maps](gallery.md) visualize the stored route and target poses for two histo
 
 The [SVG overview](../assets/architecture.svg) and [editable draw.io source](architecture.drawio) show the roles of the desktop and robot hardware. Solid edges show the mission flow. Dashed edges show onboard hardware services.
 
+The [integrated overview](../assets/system-overview.png) combines the workflow and both measured route maps on a single canvas. Its [draw.io master](system-overview.drawio) embeds the map panels and retains editable labels, modules and arrows. The separate [planning-layer master](navigation-sight-principle.drawio) illustrates the independent per-cell height-band tests.
+
 [Back to the README](../README.md)

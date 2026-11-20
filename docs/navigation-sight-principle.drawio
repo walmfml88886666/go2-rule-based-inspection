@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <mxfile host="app.diagrams.net">
   <diagram name="navigation-sight-principle" id="navigation-sight-principle">
-    <mxGraphModel dx="1600" dy="980" page="1" pageWidth="1600" pageHeight="980" background="#ffffff">
+    <mxGraphModel dx="1600" dy="1030" page="1" pageWidth="1600" pageHeight="1030" background="#ffffff">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -38,13 +38,13 @@
         <mxCell id="12" value="" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#b8c8d6;strokeColor=none;fontColor=#edf4fa;fontSize=26;fontFamily=Helvetica;align=left;verticalAlign=middle;spacingLeft=12;fontStyle=0;" vertex="1" parent="1">
           <mxGeometry as="geometry" x="185" y="627.784" width="665" height="1" />
         </mxCell>
-        <mxCell id="13" value="0.9 m" style="rounded=0;whiteSpace=wrap;html=0;fillColor=none;strokeColor=none;fontColor=#536b80;fontSize=22;fontFamily=Helvetica;align=left;verticalAlign=middle;spacingLeft=12;fontStyle=0;align=right;" vertex="1" parent="1">
+        <mxCell id="13" value="0.90 m" style="rounded=0;whiteSpace=wrap;html=0;fillColor=none;strokeColor=none;fontColor=#536b80;fontSize=22;fontFamily=Helvetica;align=left;verticalAlign=middle;spacingLeft=12;fontStyle=0;align=right;" vertex="1" parent="1">
           <mxGeometry as="geometry" x="38" y="553.0" width="140" height="36" />
         </mxCell>
         <mxCell id="14" value="" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#b8c8d6;strokeColor=none;fontColor=#edf4fa;fontSize=26;fontFamily=Helvetica;align=left;verticalAlign=middle;spacingLeft=12;fontStyle=0;" vertex="1" parent="1">
           <mxGeometry as="geometry" x="185" y="571.0" width="665" height="1" />
         </mxCell>
-        <mxCell id="15" value="2.2 m" style="rounded=0;whiteSpace=wrap;html=0;fillColor=none;strokeColor=none;fontColor=#536b80;fontSize=22;fontFamily=Helvetica;align=left;verticalAlign=middle;spacingLeft=12;fontStyle=0;align=right;" vertex="1" parent="1">
+        <mxCell id="15" value="2.20 m" style="rounded=0;whiteSpace=wrap;html=0;fillColor=none;strokeColor=none;fontColor=#536b80;fontSize=22;fontFamily=Helvetica;align=left;verticalAlign=middle;spacingLeft=12;fontStyle=0;align=right;" vertex="1" parent="1">
           <mxGeometry as="geometry" x="38" y="279.99999999999994" width="140" height="36" />
         </mxCell>
         <mxCell id="16" value="" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#b8c8d6;strokeColor=none;fontColor=#edf4fa;fontSize=26;fontFamily=Helvetica;align=left;verticalAlign=middle;spacingLeft=12;fontStyle=0;" vertex="1" parent="1">
@@ -107,8 +107,8 @@
         <mxCell id="35" value="③" style="rounded=0;whiteSpace=wrap;html=0;fillColor=none;strokeColor=none;fontColor=#172d46;fontSize=25;fontFamily=Helvetica;align=left;verticalAlign=middle;spacingLeft=12;fontStyle=1;align=center;" vertex="1" parent="1">
           <mxGeometry as="geometry" x="723" y="826" width="50" height="40" />
         </mxCell>
-        <mxCell id="36" value="Illustrative returns · object heights drawn to scale" style="rounded=0;whiteSpace=wrap;html=0;fillColor=none;strokeColor=none;fontColor=#536b80;fontSize=21;fontFamily=Helvetica;align=left;verticalAlign=middle;spacingLeft=12;fontStyle=0;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="220" y="881" width="605" height="44" />
+        <mxCell id="36" value="Illustrative returns · heights drawn to scale&#10;Each column represents one XY cell" style="rounded=0;whiteSpace=wrap;html=0;fillColor=none;strokeColor=none;fontColor=#536b80;fontSize=21;fontFamily=Helvetica;align=left;verticalAlign=middle;spacingLeft=12;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="220" y="884" width="605" height="60" />
         </mxCell>
         <mxCell id="37" edge="1" parent="1" style="endArrow=block;endFill=1;strokeWidth=2;strokeColor=#8397a9;dashed=0;">
           <mxGeometry as="geometry" relative="1">
@@ -126,58 +126,58 @@
           <mxGeometry as="geometry" x="940" y="291" width="615" height="39" />
         </mxCell>
         <mxCell id="41" value="" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#3986d7;strokeColor=#a3b3c1;fontColor=#edf4fa;fontSize=26;fontFamily=Helvetica;align=left;verticalAlign=middle;spacingLeft=12;fontStyle=0;align=center;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="978" y="346" width="135" height="81" />
+          <mxGeometry as="geometry" x="978" y="346" width="125" height="125" />
         </mxCell>
         <mxCell id="42" value="① Barrier" style="rounded=0;whiteSpace=wrap;html=0;fillColor=none;strokeColor=none;fontColor=#172d46;fontSize=20;fontFamily=Helvetica;align=left;verticalAlign=middle;spacingLeft=12;fontStyle=0;align=center;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="978" y="432" width="135" height="37" />
+          <mxGeometry as="geometry" x="978" y="474" width="135" height="37" />
         </mxCell>
         <mxCell id="43" value="" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#a3b3c1;fontColor=#edf4fa;fontSize=26;fontFamily=Helvetica;align=left;verticalAlign=middle;spacingLeft=12;fontStyle=0;align=center;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="1151" y="346" width="135" height="81" />
+          <mxGeometry as="geometry" x="1151" y="346" width="125" height="125" />
         </mxCell>
         <mxCell id="44" value="② High" style="rounded=0;whiteSpace=wrap;html=0;fillColor=none;strokeColor=none;fontColor=#172d46;fontSize=20;fontFamily=Helvetica;align=left;verticalAlign=middle;spacingLeft=12;fontStyle=0;align=center;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="1151" y="432" width="135" height="37" />
+          <mxGeometry as="geometry" x="1151" y="474" width="135" height="37" />
         </mxCell>
         <mxCell id="45" value="" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#3986d7;strokeColor=#a3b3c1;fontColor=#edf4fa;fontSize=26;fontFamily=Helvetica;align=left;verticalAlign=middle;spacingLeft=12;fontStyle=0;align=center;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="1324" y="346" width="135" height="81" />
+          <mxGeometry as="geometry" x="1324" y="346" width="125" height="125" />
         </mxCell>
         <mxCell id="46" value="③ Tall" style="rounded=0;whiteSpace=wrap;html=0;fillColor=none;strokeColor=none;fontColor=#172d46;fontSize=20;fontFamily=Helvetica;align=left;verticalAlign=middle;spacingLeft=12;fontStyle=0;align=center;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="1324" y="432" width="135" height="37" />
+          <mxGeometry as="geometry" x="1324" y="474" width="135" height="37" />
         </mxCell>
-        <mxCell id="47" value="Filled = ≥2 returns in this cell and height band" style="rounded=0;whiteSpace=wrap;html=0;fillColor=none;strokeColor=none;fontColor=#536b80;fontSize=21;fontFamily=Helvetica;align=left;verticalAlign=middle;spacingLeft=12;fontStyle=0;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="950" y="478" width="600" height="38" />
+        <mxCell id="47" value="Filled: ≥2 returns · Unfilled: &lt;2 returns" style="rounded=0;whiteSpace=wrap;html=0;fillColor=none;strokeColor=none;fontColor=#536b80;fontSize=21;fontFamily=Helvetica;align=left;verticalAlign=middle;spacingLeft=12;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="950" y="511" width="600" height="30" />
         </mxCell>
         <mxCell id="48" value="LINE-OF-SIGHT MASK" style="rounded=0;whiteSpace=wrap;html=0;fillColor=none;strokeColor=none;fontColor=#ce6a21;fontSize=26;fontFamily=Helvetica;align=left;verticalAlign=middle;spacingLeft=12;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="940" y="531" width="615" height="46" />
+          <mxGeometry as="geometry" x="940" y="558" width="615" height="46" />
         </mxCell>
         <mxCell id="49" value="0.90 &lt; relative height &lt; 2.20 m" style="rounded=0;whiteSpace=wrap;html=0;fillColor=none;strokeColor=none;fontColor=#172d46;fontSize=23;fontFamily=Helvetica;align=left;verticalAlign=middle;spacingLeft=12;fontStyle=0;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="940" y="580" width="615" height="39" />
+          <mxGeometry as="geometry" x="940" y="607" width="615" height="39" />
         </mxCell>
         <mxCell id="50" value="" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#a3b3c1;fontColor=#edf4fa;fontSize=26;fontFamily=Helvetica;align=left;verticalAlign=middle;spacingLeft=12;fontStyle=0;align=center;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="978" y="635" width="135" height="81" />
+          <mxGeometry as="geometry" x="978" y="662" width="125" height="125" />
         </mxCell>
         <mxCell id="51" value="① Barrier" style="rounded=0;whiteSpace=wrap;html=0;fillColor=none;strokeColor=none;fontColor=#172d46;fontSize=20;fontFamily=Helvetica;align=left;verticalAlign=middle;spacingLeft=12;fontStyle=0;align=center;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="978" y="721" width="135" height="37" />
+          <mxGeometry as="geometry" x="978" y="790" width="135" height="37" />
         </mxCell>
         <mxCell id="52" value="" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#ce6a21;strokeColor=#a3b3c1;fontColor=#edf4fa;fontSize=26;fontFamily=Helvetica;align=left;verticalAlign=middle;spacingLeft=12;fontStyle=0;align=center;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="1151" y="635" width="135" height="81" />
+          <mxGeometry as="geometry" x="1151" y="662" width="125" height="125" />
         </mxCell>
         <mxCell id="53" value="② High" style="rounded=0;whiteSpace=wrap;html=0;fillColor=none;strokeColor=none;fontColor=#172d46;fontSize=20;fontFamily=Helvetica;align=left;verticalAlign=middle;spacingLeft=12;fontStyle=0;align=center;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="1151" y="721" width="135" height="37" />
+          <mxGeometry as="geometry" x="1151" y="790" width="135" height="37" />
         </mxCell>
         <mxCell id="54" value="" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#ce6a21;strokeColor=#a3b3c1;fontColor=#edf4fa;fontSize=26;fontFamily=Helvetica;align=left;verticalAlign=middle;spacingLeft=12;fontStyle=0;align=center;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="1324" y="635" width="135" height="81" />
+          <mxGeometry as="geometry" x="1324" y="662" width="125" height="125" />
         </mxCell>
         <mxCell id="55" value="③ Tall" style="rounded=0;whiteSpace=wrap;html=0;fillColor=none;strokeColor=none;fontColor=#172d46;fontSize=20;fontFamily=Helvetica;align=left;verticalAlign=middle;spacingLeft=12;fontStyle=0;align=center;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="1324" y="721" width="135" height="37" />
+          <mxGeometry as="geometry" x="1324" y="790" width="135" height="37" />
         </mxCell>
-        <mxCell id="56" value="Filled = ≥2 returns in this cell and height band" style="rounded=0;whiteSpace=wrap;html=0;fillColor=none;strokeColor=none;fontColor=#536b80;fontSize=21;fontFamily=Helvetica;align=left;verticalAlign=middle;spacingLeft=12;fontStyle=0;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="950" y="767" width="600" height="38" />
+        <mxCell id="56" value="Filled: ≥2 returns · Unfilled: &lt;2 returns" style="rounded=0;whiteSpace=wrap;html=0;fillColor=none;strokeColor=none;fontColor=#536b80;fontSize=21;fontFamily=Helvetica;align=left;verticalAlign=middle;spacingLeft=12;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="950" y="827" width="600" height="30" />
         </mxCell>
-        <mxCell id="57" value="① Blocks the route, not the upper band&#10;② Flags higher occlusion, not body clearance" style="rounded=0;whiteSpace=wrap;html=0;fillColor=none;strokeColor=none;fontColor=#172d46;fontSize=23;fontFamily=Helvetica;align=left;verticalAlign=middle;spacingLeft=12;fontStyle=0;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="940" y="829" width="615" height="88" />
+        <mxCell id="57" value="① Triggers navigation only&#10;② Triggers line-of-sight only&#10;③ Triggers both masks" style="rounded=0;whiteSpace=wrap;html=0;fillColor=none;strokeColor=none;fontColor=#172d46;fontSize=23;fontFamily=Helvetica;align=left;verticalAlign=middle;spacingLeft=12;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="940" y="886" width="615" height="91" />
         </mxCell>
         <mxCell id="58" value="Grid pitch: 0.15 m · Each band is tested separately · Unfilled cells pass only that band’s return-count test" style="rounded=0;whiteSpace=wrap;html=0;fillColor=none;strokeColor=none;fontColor=#536b80;fontSize=22;fontFamily=Helvetica;align=left;verticalAlign=middle;spacingLeft=12;fontStyle=0;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="35" y="935" width="1515" height="35" />
+          <mxGeometry as="geometry" x="35" y="990" width="1515" height="35" />
         </mxCell>
       </root>
     </mxGraphModel>
