@@ -101,13 +101,13 @@
   },
   {
     "file": "assets/indoor-mission-replay.webp",
-    "sha256": "8e9296f7798c288b2906e1eab0a32e76232d880a914f83d084d23bbb06b32983",
+    "sha256": "6c5e55db40c0144b5c0b8d0ec703dfe526db64e45e93a6edcc3dee749e61fc42",
     "source": "One archived indoor mission with recorded positions, a LiDAR corner cloud, and capture events",
     "treatment": "Full 24-second replay through 22 of 22 logged captures, without a mid-mission cut."
   },
   {
     "file": "assets/indoor-mission-poster.jpg",
-    "sha256": "7914033fbde7c6d4f078098719a28676eaf1d614827be3b62390974b69bbed4c",
+    "sha256": "8152d36ede7f94a17a96bb3bb01afe0d1c9d37ea82877f3ba7f37f9010f15a36",
     "source": "One archived indoor mission with recorded positions, a LiDAR corner cloud, and capture events",
     "treatment": "1600 × 900 frame. Time-compressed field replay."
   },
@@ -189,10 +189,10 @@
   },
   {
     "file": "assets/field-exterior-indoor.mp4",
-    "sha256": "43b258e37fb128af4f0b4ce147eb04acd0d6f0a52bdb998a640dc5c6250f577b",
+    "sha256": "fd16d8502cbd2183b4bc3c48dcf09cf6519b65acc24e42a21a0c2b075fe12b21",
     "source": "FYX acceptance archive, indoor third-person field footage",
     "source_sha256": "f528c3d93e01a6884ee0517e3eede4b113f459bb7558eeb82bb7651ebcd68c34",
-    "treatment": "Nine-second excerpt at recorded speed without audio."
+    "treatment": "Nine-second cropped excerpt at recorded speed without audio."
   },
   {
     "file": "assets/slam-indoor-walk.mp4",
@@ -202,10 +202,10 @@
   },
   {
     "file": "assets/field-exterior-indoor.webp",
-    "sha256": "f5e84513a2203324ce2ad49426324700b3498f6f7f6d2c5975b049a56bc43866",
+    "sha256": "e124994f809ab33dde3aac99c99093e8ee3e7d232c480e55a806a9f1936189b2",
     "source": "FYX acceptance archive, indoor third-person field footage",
     "source_sha256": "f528c3d93e01a6884ee0517e3eede4b113f459bb7558eeb82bb7651ebcd68c34",
-    "treatment": "Nine-second excerpt at recorded speed without audio."
+    "treatment": "Nine-second cropped excerpt at recorded speed without audio."
   },
   {
     "file": "assets/slam-indoor-walk.webp",
@@ -238,5 +238,11 @@
     "sha256": "12a46c342007fbab3263c01b30b873b6ad9cd171bd12eb268150eda39ade34b4",
     "source": "Outdoor physics state archive in docs/data/slam-physics-results.json",
     "treatment": "Continuous 11-second close follow view at 1×, rendered by examples/render_showcase.py."
+  },
+  {
+    "file": "assets/indoor-mission-replay.mp4",
+    "sha256": "fcb756e69c97542e1ee6326113f9fa77685f50b35030352672fe1159ddee1489",
+    "source": "Archived indoor mission, with matching LiDAR point cloud, measured trajectory and photo events",
+    "treatment": "Full 24-second replay of 22 logged captures with eight selected photos."
   }
 ]

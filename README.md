@@ -10,7 +10,7 @@ Rule-based LiDAR SLAM inspection with Unitree Go2 EDU. The system plans routes w
 
 ### Indoor mission replay · 22/22 captures
 
-[![Full recorded indoor trajectory and capture timeline through 22 of 22](assets/indoor-mission-replay.webp)](https://github.com/walmfml88886666/go2-rule-based-inspection/releases/download/v0.3.0/indoor-mission-replay.mp4)
+[![Full recorded indoor trajectory and capture timeline through 22 of 22](assets/indoor-mission-replay.webp)](assets/indoor-mission-replay.mp4?raw=1)
 
 ## SLAM-map physical simulation
 

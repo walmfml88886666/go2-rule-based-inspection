@@ -4,7 +4,7 @@
 
 The replay combines the recorded path, the LiDAR corner cloud, and selected photographs from one indoor mission. The archive includes 10,195 pose samples over about 17 minutes and 22 inspection photo events. Each inspection photo's filename and byte size match its event record. Eight photos are displayed in the replay and appear at their logged capture times. The result is a 24-second, time-compressed reconstruction.
 
-[![Indoor mission replay still](../assets/indoor-mission-poster.jpg)](https://github.com/walmfml88886666/go2-rule-based-inspection/releases/download/v0.3.0/indoor-mission-replay.mp4)
+[![Indoor mission replay still](../assets/indoor-mission-poster.jpg)](../assets/indoor-mission-replay.mp4?raw=1)
 
 ## First-person recordings and maps
 
@@ -26,6 +26,6 @@ The camera clips are silent and have no added motion or speed effects. Preview l
 
 ## Third-person field footage
 
-The README pairs two independent excerpts from the acceptance archive under FYX. The indoor excerpt starts 2 s into the target-approach recording. The outdoor excerpt starts 15 s into the daylight gravel-and-slope recording. Both are nine seconds at recorded speed with audio removed. The recorded mission replay covers the full timeline through 22 logged captures, displaying eight selected photos.
+The README pairs two independent excerpts from the acceptance archive under FYX. The indoor excerpt starts 2 s into the target-approach recording. The outdoor excerpt starts 15 s into the daylight gravel-and-slope recording. Both are nine seconds at recorded speed with audio removed. The indoor image is cropped at the top to keep the focus on Go2. The recorded mission replay covers the full timeline through 22 logged captures, displaying eight selected photos.
 
 [Indoor target approach](../assets/field-exterior-indoor.mp4?raw=1) · [Outdoor gravel crossing](../assets/field-exterior-outdoor.mp4?raw=1)
